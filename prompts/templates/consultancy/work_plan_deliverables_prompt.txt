@@ -1,0 +1,71 @@
+// File: kazi-main/prompts/templates/consultancy/work_plan_deliverables_prompt.txt
+
+--- PROMPT_START: Prompt 10 — Work Plan and Deliverables ---
+You are an expert AI consultant, tasked with outlining the "Work Plan and Deliverables" section (Section 7) of a technical proposal. Your goal is to translate the ToR's requirements regarding timeline, activities, and outputs into a clear and structured plan.
+
+CONTEXT:
+You have already generated:
+
+The full ToR Analysis (Prompt 6 output).
+
+The "Type of Assignment" (Section 4) and "Understanding of the Assignment" (Section 5) sections (Prompt 8 output).
+
+The "Proposed Technical Approach Framework" (Section 6.1) (Prompt 7 output).
+
+The detailed "Technical Approach and Methodology" (Sections 6.2-6.10) (Prompt 9 output).
+
+INPUT:
+The complete JSON output from the ToR analysis (Prompt 6). You should primarily refer to the following sections within this JSON:
+
+scope_of_assignment.timeframe
+
+deliverables_and_timeline.detailed_timeline
+
+deliverables_and_timeline.required_deliverables
+
+deliverables_and_timeline.formatting_structure_language_requirements
+
+deliverables_and_timeline.review_feedback_mechanisms
+
+deliverables_and_timeline.total_estimated_duration
+
+methodology_and_approach (for activities implied by methods)
+
+OUTPUT INSTRUCTIONS:
+Generate the content for Section 7 in Markdown format. Use the exact headings specified below. Ensure the content is detailed, professional, and directly responsive to the ToR analysis. Do NOT include any conversational text or markdown fences outside the specified sections.
+
+7. Work Plan and Deliverables
+This section details the proposed work plan, key activities, and deliverables to ensure the successful and timely completion of the assignment.
+
+7.1. Phased Work Plan
+Outline the key phases of the assignment (e.g., Inception, Data Collection, Analysis, Reporting).
+
+For each phase, list the main activities, estimated responsibilities (e.g., "Consultant Team," "Client," "Stakeholders"), and approximate timeframes. Ensure this aligns with the deliverables_and_timeline.detailed_timeline and scope_of_assignment.timeframe from the ToR Analysis.
+
+Clearly articulate the logical flow of activities.
+
+7.2. Activity Timeline (Simplified Gantt Representation)
+Provide a simplified textual representation of a Gantt chart or a clear activity timeline. Use months or weeks as units, aligning with the deliverables_and_timeline.detailed_timeline and deliverables_and_timeline.total_estimated_duration from the ToR Analysis.
+
+Example format:
+
+Month 1: Inception, Document Review, Tool Refinement
+
+Month 2: Data Collection (Phase 1), Initial Analysis
+
+Month 3: Data Collection (Phase 2), Draft Report Preparation
+
+Month 4: Draft Report Submission, Feedback Integration, Final Report
+
+7.3. List of Deliverables
+Provide a clear, itemized list of all required deliverables as specified in the ToR Analysis (deliverables_and_timeline.required_deliverables).
+
+For each deliverable, include a brief description of its content and expected format (e.g., "Inception Report: Detailed methodology, work plan, and data collection tools, submitted as a PDF document."). Reference deliverables_and_timeline.formatting_structure_language_requirements.
+
+7.4. Milestones for Feedback and Review
+Clearly state the key milestones where client feedback and review are anticipated, as per the ToR Analysis (deliverables_and_timeline.review_feedback_mechanisms).
+
+Describe the proposed process for feedback integration and final sign-off for each major deliverable.
+
+ToR Analysis JSON Input:
+{{tor_analysis_json}}

@@ -1,0 +1,31 @@
+# Environment config
+.env
+.venv/
+*.venv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Output and working directories (preserve structure, ignore contents)
+output/*
+!output/.empty
+
+submissions/*
+!submissions/.empty
+
+jd_storage/*
+!jd_storage/.empty
+
+tor_storage/*
+!tor_storage/.empty
+
+cv_data/*
+!cv_data/.empty
+
+
+# Sensitive config files
+config/credentials.json
+config/token.json
+
+desktop.ini

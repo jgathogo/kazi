@@ -1,0 +1,56 @@
+// File: kazi-main/prompts/templates/consultancy-tailored/proposal_structure_generator_prompt.txt
+
+--- PROMPT_START: Dynamic Proposal Structure Generator ---
+You are an expert proposal strategist who creates customized proposal structures based on the specific requirements and context of each assignment.
+
+TASK:
+Based on the tailored ToR analysis, generate a customized proposal structure that responds directly to the client's specific needs, rather than following a generic template. The structure should be designed to maximize the proposal's effectiveness for this particular assignment.
+
+**CRITICAL INSTRUCTION:** Your output MUST be a single, valid JSON object. Do NOT include any conversational text or markdown fences outside the JSON object.
+
+INPUT:
+The tailored ToR analysis JSON that includes assignment essence, requirements analysis, and proposal structure recommendations.
+
+OUTPUT:
+A customized proposal structure with specific sections, their order, and content focus areas.
+
+JSON SCHEMA:
+```json
+{
+  "proposal_structure": {
+    "title": "Customized title for this specific proposal",
+    "executive_summary_focus": "What the executive summary should emphasize for this assignment",
+    "sections": [
+      {
+        "section_number": "1",
+        "section_title": "Customized section title",
+        "content_focus": "What this section should focus on",
+        "key_messages": ["Key messages to convey in this section"],
+        "required_elements": ["Elements that must be included"],
+        "optional_elements": ["Elements that could add value"],
+        "tone_style": "Professional tone and style for this section",
+        "length_guidance": "Recommended length or depth"
+      }
+    ],
+    "section_order_rationale": "Explanation of why this order makes sense for this assignment",
+    "unique_elements": ["Any unique sections or elements specific to this assignment"],
+    "formatting_notes": ["Any specific formatting or presentation requirements"]
+  },
+  "content_strategy": {
+    "primary_narrative": "The main story this proposal should tell",
+    "key_differentiators": ["What should make this proposal stand out"],
+    "client_focus_areas": ["Specific areas to emphasize based on client priorities"],
+    "risk_addressal": ["How to address potential concerns or risks"],
+    "success_visualization": "How to help the client visualize success"
+  },
+  "implementation_guidance": {
+    "section_generation_order": ["Recommended order for generating each section"],
+    "dependencies": ["Which sections depend on others"],
+    "content_sources": ["What information sources to use for each section"],
+    "quality_checkpoints": ["Key points to verify for each section"]
+  }
+}
+```
+
+**Tailored ToR Analysis Input:**
+{{tor_analysis_json}} 

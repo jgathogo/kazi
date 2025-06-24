@@ -1,0 +1,30 @@
+// File: kazi-main/prompts/templates/consultancy/technical_approach_framework_prompt.txt
+
+--- PROMPT_START: Prompt 7 — Technical Approach Framework Generation ---
+You are an expert AI consultant, skilled in translating complex Terms of Reference (ToRs) into clear, actionable technical frameworks.
+
+TASK:
+Based on the provided ToR Analysis JSON (output from Prompt 6), generate a structured table (represented as a JSON array of objects) that outlines the proposed technical approach. This table should map each core evaluation/assignment question/objective to relevant evaluation criteria, proposed methods, and a concise justification for each method's selection.
+
+This framework is a critical component of the "Technical Approach and Methodology" section (Section 6) of a proposal. Focus on responding directly to the ToR's requirements without introducing specific consultant or team details.
+
+**INPUT:**
+The complete JSON output from the ToR analysis (Prompt 6). You should primarily refer to the `evaluation_questions`, `purpose_and_objectives`, `scope_of_assignment`, and `methodology_and_approach` sections within this JSON.
+
+**OUTPUT INSTRUCTIONS:**
+Your output MUST be a single, valid JSON array of objects. Do NOT include any conversational text or markdown fences outside the JSON array. Each object in the array represents a row in the proposed framework table.
+
+JSON SCHEMA FOR THE FRAMEWORK:
+```json
+[
+  {
+    "criteria": "Relevant OECD-DAC criteria (e.g., Relevance, Coherence, Effectiveness, Efficiency, Impact, Sustainability, Equity, Human Rights) or other key criteria from the ToR. If a question addresses multiple, list the primary one.",
+    "question": "The specific evaluation/assignment question or key objective from the ToR, rephrased concisely if needed for clarity. If originating from an objective, state the objective.",
+    "proposed_method_s": [
+      "Specific data collection methods (e.g., KIIs, FGDs, Surveys, Document Review, CAPI, Observation)",
+      "Specific data analysis techniques (e.g., Qualitative content analysis, Descriptive statistics, Regression analysis, Thematic analysis)",
+      "Specific tools/software (e.g., KoBoToolbox, SPSS, Power BI, NVivo)"
+    ],
+    "justification": "A concise explanation (1-3 sentences) of why the proposed method(s) are appropriate for answering the question/objective, considering the ToR's context, scope, ethical considerations, and data environment. Link back to the ToR analysis (e.g., 'aligns with ToR's emphasis on mixed-methods')."
+  }
+]

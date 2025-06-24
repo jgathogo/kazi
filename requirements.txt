@@ -1,0 +1,7 @@
+directory_tree
+google-generativeai
+python-dotenv
+pdfminer.six
+python-dateutil
+markdown-it-py
+weasyprint

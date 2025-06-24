@@ -1,0 +1,104 @@
+// File: kazi-main/prompts/templates/consultancy/general_management_sections_prompt.txt
+
+--- PROMPT_START: Prompt 11 — General Management and Compliance Sections ---
+You are an expert AI consultant, tasked with articulating the operational and compliance aspects of a technical proposal. Your goal is to generate comprehensive content for specific sections, demonstrating robust quality assurance, effective management, adherence to ethical standards, and full compliance with the ToR.
+
+CONTEXT:
+You have already generated:
+
+The full ToR Analysis (Prompt 6 output).
+
+Sections 4, 5, 6, and 7 of the proposal.
+
+INPUT:
+The complete JSON output from the ToR analysis (Prompt 6). You should primarily refer to the following sections within this JSON:
+
+methodology_and_approach.ethical_safeguarding_requirements
+
+stakeholder_roles_participation
+
+governance_accountability
+
+deliverables_and_timeline
+
+ethical_standards_values
+
+proposal_requirements (for compliance aspects like specific documents, evaluation criteria, disclaimers)
+
+The entire ToR analysis is available for cross-referencing any specific requirements.
+
+OUTPUT INSTRUCTIONS:
+Generate the content for the following sections in Markdown format. Use the exact headings specified below. Ensure the content is detailed, professional, and directly responsive to the ToR analysis. Do NOT include any conversational text or markdown fences outside the specified sections.
+
+10. Quality Assurance and Risk Management
+This section outlines our commitment to delivering high-quality outputs and our proactive approach to managing potential risks throughout the assignment.
+
+10.1. QA Mechanisms and Internal Review Procedures
+Describe the internal quality assurance (QA) mechanisms and review procedures that will be implemented for all deliverables and processes (e.g., multi-stage review, peer review, data validation checks, consistency checks).
+
+Explain how adherence to global/industry standards (e.g., OECD-DAC, UNEG, specific client standards) will be ensured.
+
+10.2. Risk Identification and Mitigation Measures
+Identify potential operational and contextual risks (beyond technical methodology risks covered in Section 6.8) that could impact the assignment (e.g., security, access, stakeholder availability, unforeseen logistical challenges).
+
+Propose concrete mitigation measures for each identified risk.
+
+Describe the approach to continuous risk monitoring and adaptation.
+
+10.3. Approach to Feedback and Learning
+Explain how feedback from the client and stakeholders will be actively solicited, integrated, and used for continuous learning and adaptation throughout the assignment. Reference deliverables_and_timeline.review_feedback_mechanisms from ToR Analysis.
+
+11. Management and Coordination
+This section details our proposed management structure, communication protocols, and coordination mechanisms to ensure smooth execution and effective collaboration.
+
+11.1. Contract Management and Reporting Lines
+Clearly define the proposed contract management approach and reporting lines, aligning with governance_accountability.responsible_for_management and governance_accountability.responsible_for_signoff from the ToR Analysis.
+
+Describe how progress will be monitored and reported to the client.
+
+11.2. Relationship Management with Client
+Outline the strategy for maintaining transparent and proactive communication with the client throughout the assignment.
+
+Describe key communication channels and frequency (e.g., regular check-ins, formal reports, ad-hoc discussions).
+
+11.3. Collaboration Plan with Local Stakeholders and Partners
+Detail the plan for engaging and collaborating with local stakeholders and partners, drawing from stakeholder_roles_participation.key_stakeholders and stakeholder_roles_participation.roles_participation_description in the ToR Analysis.
+
+Explain how their involvement will be facilitated and valued.
+
+11.4. Logistics, Travel, and Security Arrangements
+Briefly address how logistics, travel, and security arrangements (if applicable and implied by scope_of_assignment.geographical_areas or background_and_rationale.context_summary) will be managed to ensure safe and efficient fieldwork.
+
+12. Ethical Standards and Safeguarding
+This section reaffirms our commitment to the highest ethical standards and outlines specific safeguarding measures to protect all individuals involved in or affected by the assignment.
+
+12.1. Adherence to Ethical Principles
+Reiterate adherence to explicit ethical principles and standards mentioned in the ToR Analysis (ethical_standards_values.explicit_principles_standards).
+
+Describe how confidentiality, sensitivity, respect, and the "Do No Harm" principle will be upheld.
+
+12.2. Safeguarding Policy and Measures
+Outline the safeguarding policy and specific measures to protect children, vulnerable groups, and all participants from harm, exploitation, or abuse. Reference ethical_standards_values.code_of_conduct_required and methodology_and_approach.ethical_safeguarding_requirements from ToR Analysis.
+
+12.3. Conflict of Interest and Ethical Approval
+State the approach to managing potential conflicts of interest.
+
+Describe the process for obtaining any necessary ethical approvals (e.g., IRB, national research ethics committees), if applicable and implied by the ToR.
+
+13. Compliance with Terms of Reference
+This section demonstrates our thorough understanding of and commitment to meeting all requirements outlined in the Terms of Reference.
+
+13.1. ToR Requirements Mapping
+Provide a narrative explanation of how each major section or requirement of the ToR (e.g., purpose, objectives, scope, deliverables, qualifications, reporting) has been addressed and mapped to the corresponding sections of this proposal. This is a high-level overview.
+
+If the ToR explicitly requests a table mapping, state that such a table will be provided as an Annex (or if simple enough, provide a simplified inline version).
+
+Reference proposal_requirements.evaluation_selection_criteria to show alignment with how the proposal will be judged.
+
+13.2. Deviations and Justification (If Any)
+Explicitly state if there are any proposed deviations from the ToR's requirements.
+
+Provide a clear and concise justification for each deviation, explaining how it still meets the spirit of the ToR or offers a superior approach. (The LLM should identify these based on its understanding of the ToR vs. what it's generating).
+
+ToR Analysis JSON Input:
+{{tor_analysis_json}}

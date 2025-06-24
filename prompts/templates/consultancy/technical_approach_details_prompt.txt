@@ -1,0 +1,94 @@
+// File: kazi-main/prompts/templates/consultancy/technical_approach_details_prompt.txt
+
+--- PROMPT_START: Prompt 9 — Detailed Technical Approach and Methodology ---
+You are an expert AI consultant, tasked with elaborating on the "Technical Approach and Methodology" section (Section 6) of a technical proposal. Your goal is to provide comprehensive, detailed content for the specified sub-sections, building upon the foundational ToR analysis and the previously generated framework.
+
+CONTEXT:
+You have already generated:
+
+The full ToR Analysis (Prompt 6 output).
+
+The "Type of Assignment" (Section 4) and "Understanding of the Assignment" (Section 5) sections (Prompt 8 output).
+
+The "Proposed Technical Approach Framework" (Section 6.1) (Prompt 7 output).
+
+INPUT:
+The complete JSON output from the ToR analysis (Prompt 6). You should primarily refer to the following sections within this JSON:
+
+background_and_rationale (for context, project details)
+
+purpose_and_objectives (for overall aims)
+
+evaluation_questions (for questions to address)
+
+scope_of_assignment (for timeframe, geography, inclusions/exclusions)
+
+methodology_and_approach (for recommended approach, data collection methods, sampling, software, ethical/safeguarding)
+
+stakeholder_roles_participation (for participatory elements)
+
+professional_qualifications (for implied expertise)
+
+ethical_standards_values (for explicit principles)
+
+OUTPUT INSTRUCTIONS:
+Generate the content for all sub-sections of Section 6 (excluding 6.1, which is already generated) in Markdown format. Use the exact headings specified below. Ensure the content is detailed, professional, and directly responsive to the ToR analysis. Do NOT include any conversational text or markdown fences outside the specified sections.
+
+6. Technical Approach and Methodology (Continued)
+6.2. Overall Strategy and Guiding Principles
+Describe the overarching strategy for the assignment. This should be a high-level statement of your approach (e.g., "utilization-focused," "rights-based," "adaptive").
+
+State the key guiding principles that will underpin your work (e.g., rigor, ethics, participation, client-centricity, learning-oriented). Link these to the ToR's values or requirements.
+
+6.3. Methodological Framework
+Elaborate on the chosen methodological framework (e.g., mixed-methods, qualitative, quantitative, participatory, feminist, utilization-focused, realist evaluation).
+
+Explain why this framework is best suited to address the ToR's purpose and objectives, drawing from the methodology_and_approach.approach in the ToR Analysis.
+
+6.4. Data Collection and Analysis Plans
+Detail the specific data collection methods. For each method, explain how it will be implemented (e.g., "Key Informant Interviews will be semi-structured and conducted virtually/in-person with...").
+
+Specify the types of data to be collected (e.g., qualitative narratives, quantitative metrics, secondary data).
+
+Describe the data analysis plans for both qualitative and quantitative data. Mention specific techniques (e.g., thematic analysis for qualitative, descriptive statistics, inferential statistics, regression for quantitative) and how they will answer the ToR's questions/objectives.
+
+List any specific software or platforms expected for data collection, management, or analysis, as identified in the ToR Analysis (methodology_and_approach.software_platforms_expected).
+
+6.5. Sampling Approach
+Describe the detailed sampling strategy, building on any requirements from the ToR Analysis (methodology_and_approach.sampling_strategies_requirements).
+
+Explain the rationale for the chosen sample size and selection process for different stakeholder groups or data points.
+
+Address how representativeness (if required) will be ensured.
+
+6.6. Evaluation Criteria and Indicators
+Reiterate the primary evaluation criteria that will guide the assignment (e.g., OECD-DAC criteria: Relevance, Coherence, Effectiveness, Efficiency, Impact, Sustainability).
+
+Explain how these criteria will be applied.
+
+If the ToR mentions specific indicators or types of indicators, discuss how your approach will address them. If not, describe how appropriate indicators will be identified or developed.
+
+6.7. Gender, Equity and Rights-based Integration
+Explain how gender, equity, human rights, and other cross-cutting themes (e.g., climate, marginalization, GBV, SRHR) will be integrated throughout the methodology.
+
+Provide concrete examples of how these considerations will inform data collection, analysis, and reporting (e.g., gender-disaggregated data, inclusive sampling, rights-based analysis frameworks). Reference relevant details from evaluation_questions and methodology_and_approach.ethical_safeguarding_requirements in the ToR Analysis.
+
+6.8. Risk Management Strategy (Technical aspects)
+Identify potential technical risks specific to the methodology or data (e.g., data access issues, low response rates, data quality challenges, technical feasibility of tools).
+
+Propose concrete mitigation measures for each identified technical risk.
+
+6.9. Ethical Considerations and Data Protection
+Detail the specific ethical considerations and safeguarding protocols that will be adhered to, drawing from methodology_and_approach.ethical_safeguarding_requirements and ethical_standards_values.explicit_principles_standards in the ToR Analysis.
+
+Explain how data protection and confidentiality will be ensured for all participants and data collected.
+
+Outline the process for obtaining ethical approvals if applicable.
+
+6.10. Limitations and Mitigation
+Acknowledge any inherent limitations of the proposed methodology or the assignment's scope, as identified in the ToR Analysis (scope_of_assignment.exclusions_limitations).
+
+Describe proactive strategies to mitigate the impact of these limitations on the quality and utility of the findings.
+
+ToR Analysis JSON Input:
+{{tor_analysis_json}}

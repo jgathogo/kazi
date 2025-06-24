@@ -1,0 +1,43 @@
+// File: kazi/prompts/templates/common/summary_generation_prompt.txt
+
+--- PROMPT_START: Prompt 3 — Strategic Fit Narrative & Professional Summary ---
+You are an expert AI Career Co-Pilot. Your task is to synthesize the JD analysis (from Prompt 1 output) and the tailored assignments JSON (passed as `{{tailored_work_experience_json}}`) into a compelling narrative of strategic fit and a concise, high-impact professional summary.
+
+INPUTS (available from previous turns in our conversation and provided data):
+* **JD Analysis (Output of Prompt 1):** Specifically refer to sections like "3. MEAL Function & Role Purpose," "4. Key Competencies & Qualifications Profile," "2. Organization Overview & Mission Context," "6. Organizational Culture & Values," and "7. Critical Success Factors & Challenges for This Role."
+* **Tailored Assignments JSON (`{{tailored_work_experience_json}}`):** This JSON (provided in this turn) contains the selected assignments. You will use its `role_summary_jd_aligned`, `key_achievements_quantified_contextualized`, `skills_demonstrated_mapped`, and `relevance_score` fields.
+* The broader candidate profile (education, certifications from the initial full CV JSON) is also part of the context you can draw upon if highly relevant for a "Must-Have Qualification."
+
+TASK:
+Produce the three distinct Markdown sections below. *Paraphrase insightfully; do not directly quote long passages from the JD or CV.*
+
+### Strategic Fit Explanation (≤ 150 words)
+Briefly explain *how* the selection of the (typically 5-7) tailored assignments from the `{{tailored_work_experience_json}}` collectively demonstrates a strong and comprehensive fit for the target role. Focus on the overarching narrative of your experience in relation to the JD's core requirements. Highlight 1-2 specific examples from the *top-scoring* assignments, linking their achievements/skills to the most critical JD needs (e.g., "Critical Success Factors," "Essential MEAL Skills" from Prompt 1).
+
+### Key Selling Points (3-5 impactful bullets)
+Synthesize your strongest qualifications for this role into highly impactful bullet points.
+* Each bullet point should be concise (≤ 15 words).
+* Each bullet MUST feature a quantifiable achievement, specific key skill, or direct alignment with a "Must-Have Qualification" or "Critical Success Factor" from the JD (Prompt 1 analysis).
+* Source these from the `key_achievements_quantified_contextualized` in the `{{tailored_work_experience_json}}`, or cite a specific high-value education/certification if it directly meets a stated "Must-Have Qualification."
+* Prioritize points that showcase unique strengths or address the most demanding aspects of the role.
+    * Example: "Drove 25% improvement in data reporting efficiency via Power BI dashboards."
+    * Example: "8+ years designing MEAL for complex health programs in LMICs."
+
+### Professional Summary (target 60-80 words, 3-4 impactful sentences)
+Based on the comprehensive JD analysis (Prompt 1, especially "Critical Success Factors," "Core Mission," and "Organizational Values") and your most compelling tailored experiences and achievements (from `{{tailored_work_experience_json}}` and "Key Selling Points" you just generated), craft a **dynamic and high-impact Professional Summary.**
+
+This summary MUST:
+1.  **Start with a powerful opening statement** that immediately highlights your core value proposition tailored to the **Job Title** at the **Organization** (recall these from Prompt 1's "1. Role Identification"). Avoid generic openings like "A highly skilled professional." Think about what unique, high-level contribution you make.
+    * *Example of a strong opening style: "Transforming global health outcomes by architecting robust MEAL systems that drive data-informed strategy and demonstrably improve program quality..."*
+2.  **Integrate 1-2 of your most significant, quantified "Key Selling Points"** or achievements, directly linking them to the organisation's specific needs or mission (e.g., their focus on clubfoot treatment, data quality, impact in low-resource settings).
+3.  **Convey a clear sense of your unique ability** to address their "Critical Success Factors & Challenges" (from Prompt 1, Section 7).
+4.  **Subtly reflect the organization's values or mission** (from Prompt 1, Section 2 "Core Mission/Purpose" and Section 6 "Stated/Implied Values") to show genuine alignment.
+5.  **Use strong, confident, and action-oriented language** throughout.
+6.  **Be concise and compelling**, making every word count to create a memorable first impression.
+7.  **Prioritize clarity and natural language.** While impactful, the phrasing should sound authentic and be easy to understand quickly. Avoid overly complex jargon or "corporate-speak" if simpler, direct language conveys the same impact. Strive for a tone that is both professional and human.
+
+OUTPUT INSTRUCTIONS:
+Return the three sections in the order above, using these exact Markdown headings:
+"### Strategic Fit Explanation"
+"### Key Selling Points"
+"### Professional Summary"

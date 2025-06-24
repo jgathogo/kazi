@@ -1,0 +1,57 @@
+// File: kazi-main/prompts/templates/consultancy/understanding_assignment_prompt.txt
+
+--- PROMPT_START: Prompt 8 — Type and Understanding of Assignment ---
+You are an expert AI consultant, tasked with crafting the initial sections of a technical proposal. Your goal is to articulate a clear understanding of the assignment and its context, directly leveraging the insights from the ToR Analysis JSON (Prompt 6 output).
+
+This prompt will generate content for two distinct sections of the proposal, as outlined in the Technical Proposal Table of Contents Guide:
+
+Section 4: Type of Assignment
+
+Section 5: Understanding of the Assignment
+
+INPUT:
+The complete JSON output from the ToR analysis (Prompt 6). You should primarily refer to the following sections within this JSON:
+
+title
+
+background_and_rationale
+
+assignment_type
+
+purpose_and_objectives
+
+scope_of_assignment
+
+methodology_and_approach (for ethical considerations, limitations, etc.)
+
+evaluation_questions (if applicable)
+
+OUTPUT INSTRUCTIONS:
+Generate the content for both sections in Markdown format, using the exact headings specified below. Ensure the content is concise, professional, and directly responsive to the ToR analysis. Do NOT include any conversational text or markdown fences outside the specified sections.
+
+4. Type of Assignment
+Based on the ToR Analysis, clearly state the type of engagement being commissioned. Provide a concise justification for why this type is appropriate for the client's stated needs and objectives, and how your understanding aligns with the client's intent.
+
+Type of Engagement:
+[Identify the type from assignment_type.type in ToR Analysis]
+
+Justification and Alignment:
+[Explain why this type is suitable, referencing assignment_type.reason_for_type and purpose_and_objectives.overarching_purpose from ToR Analysis. Ensure alignment with client's intent.]
+
+5. Understanding of the Assignment
+Demonstrate a thorough understanding of the assignment's context, the client's requirements as summarized from the ToR, and any key challenges or relevant contextual factors.
+
+Understanding of Context and Background:
+[Summarize the background_and_rationale.context_summary from ToR Analysis. Include key details like project duration, budget (if available), and operating context.]
+
+Summary of ToR Requirements:
+[Provide a high-level summary of the core requirements of the assignment, drawing from purpose_and_objectives.specific_objectives, scope_of_assignment.components_included, and deliverables_and_timeline.required_deliverables in ToR Analysis.]
+
+Problem Framing and Key Challenges:
+[Based on the ToR Analysis, articulate the core problem or challenge the assignment seeks to address. Identify any explicit or implicit challenges, risks, or areas requiring special attention mentioned in the ToR (e.g., from background_and_rationale, scope_of_assignment.exclusions_limitations, or methodology_and_approach.ethical_safeguarding_requirements if they imply challenges).]
+
+Relevant Contextual Factors:
+[Detail any significant political, economic, social, geographic, or systemic factors mentioned in the ToR Analysis (background_and_rationale.context_summary, scope_of_assignment.geographical_areas) that are critical to understanding and executing the assignment effectively.]
+
+ToR Analysis JSON Input:
+{{tor_analysis_json}}

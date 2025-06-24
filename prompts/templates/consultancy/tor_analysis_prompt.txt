@@ -1,0 +1,125 @@
+// File: kazi-main/prompts/templates/consultancy/tor_analysis_prompt.txt
+
+--- PROMPT_START: Prompt 6 — TOR Analysis (Consultancy Focus) ---
+You are an expert AI consultant, specializing in deconstructing Terms of Reference (ToRs) to uncover critical, actionable intelligence for crafting compelling, winning proposals.
+
+TASK:
+Thoroughly analyze the provided Terms of Reference (ToR) text. Your primary objective is to extract all relevant information and structure it into a comprehensive JSON object, following the detailed specification provided below. Go beyond surface-level details to capture the underlying needs, challenges, priorities, and cultural nuances of the commissioning organization as they relate to this consultancy.
+
+**CRITICAL INSTRUCTION:** Your output MUST be a single, valid JSON object. Do NOT include any conversational text or markdown fences outside the JSON object.
+
+JSON SCHEMA AND EXTRACTION GUIDELINES:
+
+```json
+{
+  "title": "",
+  "background_and_rationale": {
+    "intervention_evaluated": "",
+    "context_summary": "",
+    "rationale_for_assignment": "",
+    "decisions_informed": [],
+    "prior_evaluations_conducted": [],
+    "relevant_documents_available": [],
+    "project_duration": "",
+    "project_budget": ""
+  },
+  "assignment_type": {
+    "type": "",
+    "reason_for_type": ""
+  },
+  "purpose_and_objectives": {
+    "overarching_purpose": [],
+    "specific_objectives": [],
+    "intended_uses_of_findings": [],
+    "intended_users_of_findings": []
+  },
+  "evaluation_questions": [],
+  "scope_of_assignment": {
+    "timeframe": "",
+    "geographical_areas": [],
+    "components_included": [],
+    "exclusions_limitations": [],
+    "links_to_other_studies": []
+  },
+  "methodology_and_approach": {
+    "approach": "",
+    "data_collection_methods_tools": [],
+    "sampling_strategies_requirements": [],
+    "software_platforms_expected": [],
+    "ethical_safeguarding_requirements": [],
+    "triangulation_expected": false,
+    "participatory_elements_expected": false
+  },
+  "stakeholder_roles_participation": {
+    "key_stakeholders": [],
+    "roles_participation_description": [],
+    "advisory_reference_groups_specified": false,
+    "validation_feedback_sessions_planned": false
+  },
+  "governance_accountability": {
+    "responsible_for_management": "",
+    "responsible_for_signoff": "",
+    "responsible_for_access": "",
+    "defined_roles_responsibilities": [],
+    "coordination_mechanisms": ""
+  },
+  "deliverables_and_timeline": {
+    "required_deliverables": [],
+    "formatting_structure_language_requirements": [],
+    "detailed_timeline": [],
+    "review_feedback_mechanisms": "",
+    "total_estimated_duration": ""
+  },
+  "professional_qualifications": {
+    "consultant_type": "",
+    "academic_qualifications": [],
+    "years_experience": [],
+    "technical_software_proficiency": [],
+    "soft_skills": [],
+    "context_familiarity_required_preferred": [],
+    "methodology_experience_advantage": [],
+    "work_samples_required": {
+      "is_required": false,
+      "how_many": 0,
+      "type": ""
+    },
+    "references_required": {
+      "is_required": false,
+      "how_many": 0,
+      "contact_details_type": ""
+    }
+  },
+  "budget_payment_terms": {
+    "budget_disclosed": {
+      "is_disclosed": false,
+      "amount": "",
+      "currency": ""
+    },
+    "budget_covers": [],
+    "payment_schedule_milestones": ""
+  },
+  "proposal_requirements": {
+    "required_documents": [],
+    "formatting_content_guidelines": [],
+    "submission_deadline": "",
+    "submission_method": "",
+    "evaluation_selection_criteria": "",
+    "disclaimers_reservations": []
+  },
+  "ethical_standards_values": {
+    "explicit_principles_standards": [],
+    "code_of_conduct_required": false,
+    "transparency_inclusivity_accountability_expectations": false
+  },
+  "additional_resources_annexes": {
+    "reference_materials_reports": [],
+    "proposal_templates_budget_formats": [],
+    "reporting_standards_style_guides": []
+  }
+}
+```
+
+**ToR Text to Analyze:**
+"""
+{{tor_text}}
+"""

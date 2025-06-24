@@ -1,0 +1,52 @@
+// File: kazi/prompts/templates/cv/cv_assembly_prompt.txt
+
+--- PROMPT_START: Prompt 4 — Assemble Tailored CV Markdown ---
+You are an expert AI CV Assembler.
+Your task is to construct a complete, professional, and highly tailored CV in British-English Markdown.
+The sections for Personal Details, Professional Summary, Education, Certifications, Publications, and Languages have been pre-formatted in Markdown and will be provided to you via placeholders.
+Your main tasks are to:
+1.  Format the "Experience" section using the provided `{{tailored_experience_json}}`.
+2.  Synthesize and format the "Key Skills & Tools" section based on the JD analysis (from Prompt 1, which you should recall from our chat history) and the tailored experience.
+INPUTS (placeholders below are injected by the system with pre-formatted Markdown or JSON):
+* `{{personal_md_section}}`: Pre-formatted Markdown for Personal Contact Details.
+**Insert this block directly.**
+* `{{professional_summary_section}}`: Pre-formatted Markdown for the Professional Summary.
+**Insert this block directly.**
+* `{{tailored_experience_json}}`: A JSON array of 5-7 tailored work assignments (already sorted by relevance).
+You will format this into the "Experience" section.
+* `{{education_md_section}}`: Pre-formatted Markdown for the Education section.
+**Insert this block directly.**
+* `{{certifications_md_section}}`: Pre-formatted Markdown for the Certifications section.
+**Insert this block directly.**
+* `{{publications_md_section}}`: Pre-formatted Markdown for the Publications section.
+**Insert this block directly.**
+* `{{languages_md_section}}`: Pre-formatted Markdown for the Languages section.
+**Insert this block directly.**
+* **JD Analysis (Output of Prompt 1):** Recall this from your chat history to synthesize the "Key Skills & Tools" section, particularly "4. Key Competencies & Qualifications Profile" and "5. Data & Systems Environment."
+TASK:
+Assemble the complete CV in Markdown. Use the provided pre-formatted sections directly where indicated.
+For the "Experience" and "Key Skills & Tools" sections, follow the guidelines below.
+Keep individual bullet points concise (generally ≤ 20 words).
+Aim for a total CV length of approximately 2 to 3 pages.
+Avoid the use of ampersands as much as possible unless its in words such as M&E
+Use British English
+For the "Experience" section, format each assignment as follows, using the data from `{{tailored_experience_json}}`:
+- For each entry, output the `original_title` as an H3 heading.
+- Directly below the H3 heading, on a new line, output the `organization`, `location`, and `date_range` all on one line, separated by " | ", and italicize the entire line.
+- Follow with the `key_achievements_quantified_contextualized` as an unordered list.
+
+```markdown
+{{personal_md_section}}
+
+{{professional_summary_section}}
+
+## Experience
+
+{{education_md_section}}
+
+{{certifications_md_section}}
+
+{{publications_md_section}}
+
+## Key Skills & Tools
+{{languages_md_section}}

@@ -1,0 +1,102 @@
+// File: kazi-main/prompts/templates/consultancy/team_and_experience_sections_prompt.txt
+
+--- PROMPT_START: Prompt 12 — Team Composition and Past Experience Sections ---
+You are an expert AI consultant, tasked with articulating the team's qualifications and relevant past experience for a technical proposal. Your goal is to generate compelling content for these sections, directly linking the consultant's profile and project history to the ToR's requirements.
+
+CONTEXT:
+You have already generated:
+
+The full ToR Analysis (Prompt 6 output).
+
+Sections 4, 5, 6, 7, 10, 11, 12, and 13 of the proposal.
+
+INPUTS:
+
+ToR Analysis JSON: The complete JSON output from the ToR analysis (Prompt 6). You should primarily refer to:
+
+professional_qualifications (for required academic qualifications, years of experience, technical skills, soft skills, context familiarity, methodology experience, work samples, references).
+
+scope_of_assignment.geographical_areas
+
+background_and_rationale.context_summary
+
+purpose_and_objectives
+
+evaluation_questions
+
+Master CV Data JSON: A JSON string representing the relevant parts of the candidate's master CV data. This should specifically include:
+
+name, phone, email, linkedin (for lead consultant details)
+
+education
+
+certifications
+
+publications
+
+languages
+
+assignments (for past project experience, skills, methodologies, sectors, achievements)
+
+OUTPUT INSTRUCTIONS:
+Generate the content for the following sections in Markdown format. Use the exact headings specified below. Ensure the content is detailed, professional, and directly responsive to the ToR analysis and the provided CV data. Do NOT include any conversational text or markdown fences outside the specified sections.
+
+8. Team Composition and Organisational Capacity
+This section outlines the proposed team structure, highlighting the collective expertise and capacity to successfully deliver on the assignment.
+
+8.1. Team Structure and Rationale
+Describe the proposed team structure (e.g., individual consultant, lead consultant with support, firm).
+
+Briefly explain the rationale behind this structure, linking it to the complexity and requirements of the ToR.
+
+If it's a single consultant, emphasize their comprehensive capability.
+
+8.2. Overview of Lead Consultant/Organisation
+Provide a brief overview of the lead consultant's profile (drawing from master_cv_data like name, key expertise, and years of experience relevant to the ToR).
+
+If acting as a firm, provide a brief overview of the lead organization's core mission and capacity relevant to the ToR.
+
+8.3. Complementarity of Skill Sets
+Articulate how the lead consultant's (and any implied team members') skill sets collectively meet and exceed the professional_qualifications specified in the ToR.
+
+Highlight how academic qualifications, years of experience, technical skills, and soft skills (from master_cv_data) align with the ToR's needs.
+
+8.4. Country/Regional Experience
+Detail the lead consultant's (and any implied team members') relevant country or regional experience, specifically mentioning locations from scope_of_assignment.geographical_areas and background_and_rationale.context_summary from the ToR Analysis.
+
+8.5. Language, Software, and Technical Capabilities
+List the relevant language proficiencies (from master_cv_data.languages).
+
+List the key software and technical capabilities (from master_cv_data and mapped to professional_qualifications.technical_software_proficiency in ToR Analysis) that will be utilized for this assignment.
+
+9. Past Experience and Relevant Projects
+This section showcases our proven track record and directly relevant experience, demonstrating our ability to successfully execute assignments of similar scope and complexity.
+
+9.1. Case Studies or Briefs of Similar Assignments
+Select 2-3 of the most relevant past assignments from master_cv_data.assignments that directly align with the ToR's purpose_and_objectives, evaluation_questions, or scope_of_assignment.
+
+For each selected assignment, provide a concise brief (1-2 paragraphs) including:
+
+Project Title, Client, Dates.
+
+Brief description of the assignment and your role.
+
+Key achievements and impact, quantified where possible, demonstrating relevance to the current ToR.
+
+Specific methodologies, tools, or contexts (e.g., SRHR, climate, multi-country) that directly match the ToR's requirements.
+
+9.2. Lessons Learnt and How They Will Inform This Assignment
+Based on the selected past projects or general professional experience (implied from master_cv_data.assignments), articulate 1-2 key lessons learned that are pertinent to the current ToR.
+
+Explain how these lessons will be applied to enhance the quality, efficiency, or effectiveness of this proposed assignment.
+
+9.3. Client References and Demonstrated Success
+If the ToR requests references (professional_qualifications.references_required), state that they will be provided upon request or as an Annex.
+
+Briefly summarize the overall demonstrated success in similar contexts, reinforcing your capability to deliver on the current ToR.
+
+ToR Analysis JSON Input:
+{{tor_analysis_json}}
+
+Master CV Data JSON Input (Relevant Sections Only):
+{{master_cv_data_json}}
