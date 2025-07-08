@@ -8,7 +8,7 @@ from core.document_generators.cv_generator import generate_tailored_experience_j
 from core.document_generators.cover_letter_generator import generate_cover_letter_markdown
 from core.document_generators.technical_proposal_generator import generate_technical_approach_framework, generate_type_and_understanding_sections, generate_detailed_technical_approach_sections, generate_work_plan_and_deliverables_sections, generate_general_management_sections, generate_team_and_experience_sections, generate_executive_summary_section, assemble_technical_proposal_markdown # NEW: Import the assembly function
 from core.content_synthesizer import generate_strategic_narrative
-from data_management.input_handler import read_pdf_text_from_jd_storage, read_pdf_text_from_tor_storage, read_master_cv_json
+from data_management.input_handler import read_text_from_jd_storage, read_text_from_tor_storage, read_master_cv_json
 from data_management.output_handler import save_text_to_output_dir
 from config import settings
 import os
@@ -21,7 +21,15 @@ from core.document_generators.tailored_proposal_generator import (
 )
 
 
+import re
+
+def sanitize_filename(filename):
+    """Removes invalid characters from a filename."""
+    return re.sub(r'[<>:"/\\|?*]', '_', filename)
+
+
 def run_full_application_package_pipeline(jd_pdf_filename: str) -> bool:
+
     settings.log_info(f"--- Starting Full Application Package Pipeline for: {jd_pdf_filename} ---")
     current_step_outputs = {} 
     base_jd_filename = os.path.splitext(os.path.basename(jd_pdf_filename))[0]
@@ -34,7 +42,7 @@ def run_full_application_package_pipeline(jd_pdf_filename: str) -> bool:
 
     # --- Stage 1: JD Analysis (Prompt 1) ---
     settings.log_info("\nStage 1: Analyzing Job Description...")
-    jd_text = read_pdf_text_from_jd_storage(jd_pdf_filename)
+    jd_text = read_text_from_jd_storage(jd_pdf_filename)
     if not jd_text:
         settings.log_error(f"Failed to read JD text from {jd_pdf_filename}. Aborting pipeline.")
         return False
@@ -138,7 +146,7 @@ def run_full_application_package_pipeline(jd_pdf_filename: str) -> bool:
 # Keep the old function for now if you want to test only JD analysis
 def run_jd_analysis_pipeline(jd_pdf_filename: str) -> str | None:
     settings.log_info(f"Starting JD analysis pipeline for: {jd_pdf_filename}")
-    jd_text = read_pdf_text_from_jd_storage(jd_pdf_filename)
+    jd_text = read_text_from_jd_storage(jd_pdf_filename)
     if not jd_text:
         settings.log_error(f"Failed to read JD text from '{jd_pdf_filename}'. Aborting pipeline.")
         return None
@@ -173,7 +181,7 @@ def run_tor_analysis_pipeline(tor_pdf_filename: str) -> str | None:
 
     # Stage 1: Read ToR PDF
     settings.log_info("\nStage 1: Reading ToR Document...")
-    tor_text = read_pdf_text_from_tor_storage(tor_pdf_filename)
+    tor_text = read_text_from_tor_storage(tor_pdf_filename)
     if not tor_text:
         settings.log_error(f"Failed to read ToR text from {tor_pdf_filename}. Aborting pipeline.")
         return None
@@ -347,14 +355,15 @@ def run_tor_analysis_tailored_pipeline(tor_pdf_filename: str) -> str | None:
     settings.log_info(f"--- Starting Tailored ToR Analysis and Customized Proposal Pipeline for: {tor_pdf_filename} ---")
     
     base_tor_filename = os.path.splitext(os.path.basename(tor_pdf_filename))[0]
-    timestamp = datetime.datetime.now().strftime("%H%M%d%m%y")
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    run_folder_name = f"{base_tor_filename}_{timestamp}"
     llm_model_suffix = settings.LLM_MODEL_NAME.replace("gemini-", "")
 
     current_step_outputs = {}
 
     # Stage 1: Read ToR PDF
     settings.log_info("\nStage 1: Reading ToR Document...")
-    tor_text = read_pdf_text_from_tor_storage(tor_pdf_filename)
+    tor_text = read_text_from_tor_storage(tor_pdf_filename)
     if not tor_text:
         settings.log_error(f"Failed to read ToR text from {tor_pdf_filename}. Aborting pipeline.")
         return None
@@ -370,7 +379,7 @@ def run_tor_analysis_tailored_pipeline(tor_pdf_filename: str) -> str | None:
     # Save the tailored ToR analysis JSON
     tor_analysis_json_str = json.dumps(tor_analysis_data, indent=2)
     tor_analysis_output_filename = f"{base_tor_filename}_tailored_tor_analysis_{timestamp}_{llm_model_suffix}.json"
-    save_text_to_output_dir(tor_analysis_output_filename, tor_analysis_json_str, base_file=base_tor_filename, app_type="consultancy-tailored")
+    save_text_to_output_dir(tor_analysis_output_filename, tor_analysis_json_str, base_file=run_folder_name, app_type="consultancy-tailored")
     settings.log_info(f"Stage 2: Tailored ToR Analysis JSON saved to output/{tor_analysis_output_filename}")
 
     # Stage 3: Generate Customized Proposal Structure
@@ -386,7 +395,7 @@ def run_tor_analysis_tailored_pipeline(tor_pdf_filename: str) -> str | None:
     # Save the proposal structure JSON
     structure_json_str = json.dumps(proposal_structure, indent=2)
     structure_output_filename = f"{base_tor_filename}_customized_proposal_structure_{timestamp}_{llm_model_suffix}.json"
-    save_text_to_output_dir(structure_output_filename, structure_json_str, base_file=base_tor_filename, app_type="consultancy-tailored")
+    save_text_to_output_dir(structure_output_filename, structure_json_str, base_file=run_folder_name, app_type="consultancy-tailored")
     settings.log_info(f"Stage 3: Customized Proposal Structure saved to output/{structure_output_filename}")
 
     # Stage 4: Generate Dynamic Content for Each Section
@@ -415,8 +424,9 @@ def run_tor_analysis_tailored_pipeline(tor_pdf_filename: str) -> str | None:
         section_contents[section['section_number']] = section_content
         
         # Save individual section content
-        section_output_filename = f"{base_tor_filename}_section_{section['section_number']}_{section['section_title'].replace(' ', '_').lower()}_{timestamp}_{llm_model_suffix}.md"
-        save_text_to_output_dir(section_output_filename, section_content, base_file=base_tor_filename, app_type="consultancy-tailored")
+        sanitized_section_title = sanitize_filename(section['section_title'])
+        section_output_filename = f"{base_tor_filename}_section_{section['section_number']}_{sanitized_section_title.replace(' ', '_').lower()}_{timestamp}_{llm_model_suffix}.md"
+        save_text_to_output_dir(section_output_filename, section_content, base_file=run_folder_name, app_type="consultancy-tailored")
         settings.log_info(f"Section {section['section_number']} content saved to output/{section_output_filename}")
 
     current_step_outputs["section_contents"] = section_contents
@@ -439,7 +449,7 @@ def run_tor_analysis_tailored_pipeline(tor_pdf_filename: str) -> str | None:
 
     # Save the customized proposal
     full_proposal_output_filename = f"{base_tor_filename}_customized_proposal_{timestamp}_{llm_model_suffix}.md"
-    save_text_to_output_dir(full_proposal_output_filename, full_proposal_md, base_file=base_tor_filename, app_type="consultancy-tailored")
+    save_text_to_output_dir(full_proposal_output_filename, full_proposal_md, base_file=run_folder_name, app_type="consultancy-tailored")
     settings.log_info(f"Stage 5: Customized Proposal saved to output/{full_proposal_output_filename}")
 
     settings.log_info("\n--- Tailored ToR Analysis and Customized Proposal Pipeline Completed Successfully ---")

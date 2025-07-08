@@ -6,7 +6,11 @@ You are an expert AI consultant specializing in deep analysis of Terms of Refere
 TASK:
 Analyze the provided ToR document comprehensively. Instead of following a rigid template, identify the unique characteristics, requirements, and nuances of this specific assignment. Your goal is to understand not just what is explicitly stated, but also what is implied, what might be missing, and what the client's underlying needs are.
 
-**CRITICAL INSTRUCTION:** Your output MUST be a single, valid JSON object. Do NOT include any conversational text or markdown fences outside the JSON object.
+**CRITICAL INSTRUCTIONS:**
+1. Your output MUST be a single, valid JSON object. 
+2. Do NOT include any conversational text or markdown fences outside the JSON object.
+3. Do NOT add any fields to the JSON output that are not specified in the schema.
+4. Before providing the final JSON, internally review it to ensure it is valid and adheres to the schema.
 
 ANALYSIS APPROACH:
 1. **Assignment Type Identification**: What kind of consultancy is this? (evaluation, research, capacity building, strategic planning, technical assistance, etc.)
@@ -58,6 +62,12 @@ JSON SCHEMA (Adaptive Structure):
     "differentiation_opportunities": ["How to stand out from other proposals"],
     "strength_alignment": ["How to align with the client's stated priorities"],
     "credibility_factors": ["What would build credibility with this client"]
+  },
+  "audience_profile": {
+    "primary_reader_persona": "e.g., Busy Program Manager, Technical Specialist, HR Professional",
+    "reader_priorities": ["e.g., Budget adherence, innovative methodology, clear outcomes, low risk"],
+    "inferred_technical_level": "e.g., High-level (executive summary focus), Mixed (clear benefits with technical appendices), Deep-dive (expects detailed methodology)",
+    "decision_making_drivers": ["e.g., Demonstrated understanding of their specific context, clear ROI, alignment with their stated values, low implementation risk"]
   }
 }
 ```

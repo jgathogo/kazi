@@ -29,22 +29,25 @@ def main():
         settings.log_info("--- Kazi CLI Finished (with errors) ---")
         return
 
-    input_file_path = ""
+    # Determine the correct storage directory based on the application type
+    storage_dir = ""
     if args.type == "job":
-        input_file_path = os.path.join(settings.JD_STORAGE_DIR, os.path.basename(args.input_filename))
-        if not os.path.exists(input_file_path):
-            settings.log_error(f"The specified JD file '{os.path.basename(args.input_filename)}' was not found in '{settings.JD_STORAGE_DIR}'.")
-            settings.log_info("--- Kazi CLI Finished (with errors) ---")
-            return
+        storage_dir = settings.JD_STORAGE_DIR
+    elif args.type in ["consultancy", "consultancy-tailored"]:
+        storage_dir = settings.TOR_STORAGE_DIR
+
+    # Validate the input file path
+    input_file_path = os.path.join(storage_dir, os.path.basename(args.input_filename))
+    if not os.path.exists(input_file_path):
+        settings.log_error(f"The specified file '{os.path.basename(args.input_filename)}' was not found in '{storage_dir}'.")
+        settings.log_info("--- Kazi CLI Finished (with errors) ---")
+        return
+
+    # Perform additional validation for 'job' type
+    if args.type == "job":
         master_cv_path = os.path.join(settings.CV_DATA_DIR, settings.MASTER_CV_FILENAME)
         if not os.path.exists(master_cv_path):
             settings.log_error(f"Master CV file '{settings.MASTER_CV_FILENAME}' not found in '{settings.CV_DATA_DIR}'.")
-            settings.log_info("--- Kazi CLI Finished (with errors) ---")
-            return
-    elif args.type == "consultancy":
-        input_file_path = os.path.join(settings.TOR_STORAGE_DIR, os.path.basename(args.input_filename))
-        if not os.path.exists(input_file_path):
-            settings.log_error(f"The specified ToR file '{os.path.basename(args.input_filename)}' was not found in '{settings.TOR_STORAGE_DIR}'.")
             settings.log_info("--- Kazi CLI Finished (with errors) ---")
             return
     
@@ -84,4 +87,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
