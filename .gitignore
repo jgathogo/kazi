@@ -28,4 +28,7 @@ cv_data/*
 config/credentials.json
 config/token.json
 
-desktop.ini
+# OS-generated files
+[Dd]esktop.ini
+Thumbs.db
+.DS_Store

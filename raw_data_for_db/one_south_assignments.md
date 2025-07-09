@@ -1,0 +1,237 @@
+*   **Project Title:** **Evaluation of the Girls Education Challenge (Transitions) Project Ethiopia**
+    *   **Client:** ChildHope, United Kingdom
+    *   **Date Range:** May 2019 – Present (Tariq's involvement), 2019-2021 (Andres's involvement), September 2019 – April 2021 (James's involvement for Midline and Endline data collection)
+    *   **Project Summary:** One South coordinated the design and implementation of a multi-year impact evaluation to assess the project's impact on literacy, numeracy, and transitions. This project, part of the UK-funded Girls’ Education Challenge – Transition (GEC-T), supported over 16,000 marginalized girls in primary and secondary schools in Ethiopia. Its aim was to improve access, learning outcomes, transition, and gender-sensitive education through teacher training, community mobilization, and inclusion initiatives. Tariq Omarshah served as Principal Investigator, Andrés Navarrete as Senior Consultant, and James Gathogo as Survey Manager for midline and endline data collection.
+    *   **Sectors:** Education, Health, Inclusive Education, Gender Equality and Social Inclusion (GESI), Girls’ Education, Child Protection, Monitoring, Evaluation, Accountability and Learning (MEAL).
+    *   **Methodologies:** Quasi-experimental designs, Difference-in-difference techniques, Contribution analysis, Process tracing, Outcome mapping, Case study methodologies, Advanced statistical analysis and interpretation, Applied research, Multi-year impact evaluation, Longitudinal Study, Mixed-methods, Descriptive Statistics, Focus Group Discussions, Key Informant Interviews, Safeguarding and Risk Protocols.
+
+*   **Project Title:** **Analysis of Client Exit Interviews for 28 Country Programmes**
+    *   **Client:** Marie Stopes International, United Kingdom
+    *   **Date Range:** November 2018 – March 2019 (Tariq's involvement), 2018-2019 (Andres's involvement), November 2018 – February 2020 (James's involvement for Years 1 & 2)
+    *   **Project Summary:** The project involved coordinating an analyst team to produce source materials for a global dashboard by cleaning, analyzing, and reporting client exit interview data across 28 country programmes in Asia, Africa, and Latin America. This also included preparing global and localized syntaxes and clarifying data challenges with country teams. The aim was to collect feedback from clients on sexual and reproductive health services to monitor service quality, equity, and client satisfaction for Marie Stopes International’s global performance management framework.
+    *   **Sectors:** Education, Health, Private-sector development, Sexual and Reproductive Health and Rights (SRHR), Client Feedback and Accountability, Monitoring, Evaluation, Accountability and Learning (MEAL), Health Systems.
+    *   **Methodologies:** Statistical analysis and interpretation, Data analysis and reporting, Quantitative Survey Analysis, SPSS Syntax Development, Dashboard Reporting, Data Verification & Validation.
+
+*   **Project Title:** **Gender-Responsive Education Advancement and Transformation (GREAT) Project Multi-country Evaluation (Ghana, Rwanda, Mozambique)**
+    *   **Client:** Right To Play, Canada
+    *   **Date Range:** May 2018 – December 2018 (Tariq's Baseline involvement), 2019-2021 (Andres's Baseline involvement), February 2022 – March 2023 (James's Midline and Endline involvement)
+    *   **Project Summary:** One South coordinated large-scale data collection activities (sample size per country 1400 children) across Mozambique, Rwanda, and Ghana. They established quality control processes for in-country evaluation partners, managed client relationships, drafted an impact evaluation framework for a longitudinal study, and organized validation workshops. The project specifically targeted educational outcomes (learning, attendance, enrolment) and improved life skills through the adoption of gender-responsive play-based learning. It also aimed to improve learning outcomes, enrolment, and life skills through gender-responsive, play-based learning, targeting marginalized children through teacher training and inclusive pedagogical approaches.
+    *   **Sectors:** Education, Monitoring, Evaluation, Accountability and Learning (MEAL), Inclusive Education, Gender Equality and Social Inclusion (GESI).
+    *   **Methodologies:** Quasi-experimental designs, Difference-in-difference techniques, Case study methodologies, Impact evaluation framework for longitudinal study, Data analysis, validation, and reporting, Mixed-methods, Quasi-experimental, Contribution Analysis, Participatory Evaluation.
+
+*   **Project Title:** **External Evaluation of the GEC-T Inclusive Education Programme in Kenya**
+    *   **Client:** Leonard Cheshire, United Kingdom
+    *   **Date Range:** February 2018 – Present (Tariq's involvement), 2018-2019 (Andres's involvement), February 2018 – April 2022 (James's involvement for Baseline, Midline, and Endline)
+    *   **Project Summary:** One South formulated an innovative research design to assess the project’s impact on closing the gap between girls with and without disabilities. They managed client relationships and coordinated with the Fund Manager to ensure compliance with DFID evaluation guidance. The project aimed to improve the adoption of inclusive education strategies in primary and secondary schools in Kenya’s lake region to support children with disabilities. This involved providing assistive devices, teacher training, infrastructure improvements, and community-based interventions for 2,100 girls and 678 boys with disabilities across 83 institutions.
+    *   **Sectors:** Education, Health, Disability, Inclusive Education, Gender Equality and Social Inclusion (GESI), Monitoring, Evaluation, Accountability and Learning (MEAL).
+    *   **Methodologies:** Statistical analysis and interpretation, Data analysis, Research design, Mixed-methods, Quasi-experimental, Multilingual Tool Development, Qualitative Thematic Analysis, Key Informant Interviews, Tool Design and Deployment, Impact Evaluation, Focus Group Discussions.
+
+*   **Project Title:** **Evaluation of the Rwanda Education Advancement Programme II (REAP2)**
+    *   **Client:** Health Poverty Action, Rwanda
+    *   **Date Range:** June 2017 – Present (Tariq's involvement), 2017-2018 (Andres's involvement)
+    *   **Project Summary:** One South drafted the program’s Monitoring, Evaluation, and Learning (MEL) Framework through a collaborative process and supported baseline and midline study design and implementation. Responsibilities included designing, piloting, and calibrating learning assessments (EGRA, EGMA, SeGRA, SeGMA), training enumerator teams, designing qualitative tools, and coordinating data collection activities for tracked treatment and control cohorts of marginalized girls in Nyaruguru District. The project aimed to improve the learning and transition rates of marginalized girls.
+    *   **Sectors:** Education, Health, Monitoring, Evaluation, and Learning.
+    *   **Methodologies:** Statistical analysis and interpretation, Data analysis and reporting, MEL Framework design, Study design and implementation, Qualitative tools design.
+
+*   **Project Title:** **Evaluation of the Umunthu Programme**
+    *   **Client:** Arts and Global Health Centre, Malawi, ART & GLOBAL HEALTH CENTER AFRICA
+    *   **Date Range:** June 2017 – Present (Tariq's involvement), 2019-Present (Andres's involvement), June 2023 – November 2023 (James's involvement for Endline)
+    *   **Project Summary:** One South led a mixed-methods evaluation applying Contribution Analysis, including data analysis, collection, and reporting for Baseline (2017), Midline (2018), and Endline (2019). The project aimed to reduce stigma and discrimination of health workers towards LGBTI populations in Malawi through a participatory behavior change methodology. The evaluation for Phase II assessed the program's relevance, impact, effectiveness, and sustainability.
+    *   **Sectors:** Health, LGBTI+ Inclusion, Gender Equality and Social Inclusion (GESI), Monitoring, Evaluation, Accountability and Learning (MEAL).
+    *   **Methodologies:** Contribution analysis, Data analysis, collection, and reporting, Mixed-methods, Theory-Based Evaluation, Most Significant Change, Qualitative Thematic Analysis, Document Review, Participatory Evaluation.
+
+*   **Project Title:** **Programme for the Advancement of Girls Education in Mozambique (PAGE-M) Endline**
+    *   **Client:** Save the Children, Mozambique
+    *   **Date Range:** September 2016 – April 2017 (Tariq's involvement), 2016-2017 (Andres's involvement)
+    *   **Project Summary:** One South led the evaluation of a GBP 7,000,000 program using the difference-in-difference technique to assess project impact on literacy, numeracy, attendance, and enrolment. This involved leading a team of over 60 quantitative and qualitative field staff, consultants, and research assistants, along with data analysis and reporting for the endline study, and coordination with the GEC Fund Manager PwC on compliance requirements.
+    *   **Sectors:** Education.
+    *   **Methodologies:** Difference-in-difference technique, Statistical analysis and interpretation, Data analysis and reporting.
+
+*   **Project Title:** **Malaria Control and Mapping for Mobile Migrant Populations (MMPs) Along Cambodia-Lao PDR Border**
+    *   **Client:** Health Poverty Action, Cambodia
+    *   **Date Range:** February 2017 – April 2017
+    *   **Project Summary:** One South provided technical support to analyze a household survey of 8,500 mobile migrant population beneficiaries to understand malaria Knowledge, Attitudes, and Practices (KAP) and the effectiveness of Village Malaria Workers. Key recommendations were identified to support the development of a behavior change communication toolkit (BCC) for the program.
+    *   **Sectors:** Health.
+    *   **Methodologies:** Data analysis, Technical support.
+
+*   **Project Title:** **Rwanda Education Advancement Programme (REAP) Endline**
+    *   **Client:** Health Poverty Action, Rwanda
+    *   **Date Range:** June 2016 – April 2017
+    *   **Project Summary:** One South supported the evaluation of the project's impact on literacy, numeracy, attendance, and enrolment through the difference-in-difference technique. This included reviewing Midline data, findings, and reporting to ensure consistency with the Endline study approach, as well as data analysis, collection, and reporting.
+    *   **Sectors:** Education.
+    *   **Methodologies:** Difference-in-difference technique, Statistical analysis and interpretation, Data analysis, collection, and reporting.
+
+*   **Project Title:** **Evaluation of the Tiphunzitsane (Let’s Teach) Project**
+    *   **Client:** Theatre for a Change, Malawi
+    *   **Date Range:** April 2016 – June 2016
+    *   **Project Summary:** One South led the external evaluation, managing research design, data collection, data analysis, and report write-up. They supervised an associate-level consultant and estimated the project's impact using case-control study methods. The project aimed to improve the sexual and reproductive health of pre-service teachers and their ability to teach SRH modules to primary school children.
+    *   **Sectors:** Health.
+    *   **Methodologies:** Case-control study methods, Research design, Data collection, Data analysis, Report write-up.
+
+*   **Project Title:** **External Evaluation of the Nzotheka Project**
+    *   **Client:** Theatre for a Change, Malawi
+    *   **Date Range:** March 2016 – August 2018
+    *   **Project Summary:** One South coordinated the evaluation using contribution analysis to infer the project’s contribution to desired results. They facilitated a Performance Story Workshop to develop a consensus theory of change, designed participatory tools, and coordinated/supported data collection, analysis, and reporting. The project aimed to improve the sexual and reproductive health of female sex workers and girls at risk of sexual exploitation, and to improve community protections for sexually exploited girls and female sex workers by working with relevant power holders.
+    *   **Sectors:** Health, Human Rights.
+    *   **Methodologies:** Contribution analysis, Process tracing, Data analysis, Participatory tools design.
+
+*   **Project Title:** **Endline Study Pilot Project Books Can Open Closed Doors**
+    *   **Client:** Save the Children, Rwanda
+    *   **Date Range:** November 2015 – December 2015
+    *   **Project Summary:** One South handled data cleaning, analysis, and reporting for this child domestic worker pilot project implemented in Nyarunge District. A report was drafted focusing on recommendations prior to project scale-up. The pilot project aimed to improve the working conditions and rights of child domestic workers.
+    *   **Sectors:** Education, Human Rights.
+    *   **Methodologies:** Data cleaning, Data analysis and reporting.
+
+*   **Project Title:** **AFFORD Programme Evaluation (Uganda, Tanzania, Mozambique, Ireland, South Africa)**
+    *   **Client:** Help Age International, Regional Office
+    *   **Date Range:** August 2015 – November 2015
+    *   **Project Summary:** One South coordinated evaluation activities with Help Age country offices, including logistics, budgeting, and session schedules. They developed discussion guides for key informant interviews and focus group discussions, were responsible for data collection activities in Ireland, Mozambique, and Uganda, and mapped/tested hypotheses in line with a process tracing approach. The AFFORD program aimed to promote elderly people’s access to age-friendly health care and social protection through grass-roots advocacy.
+    *   **Sectors:** Health, Human Rights.
+    *   **Methodologies:** Process tracing approach, Case study methodologies, Data collection, Discussion guide development.
+
+*   **Project Title:** **Endline Evaluation of the Accountability and Fulfilment for Older Persons to Raise the Dignity Programme (AFFORDII) (multi-country)**
+    *   **Client:** HelpAge International
+    *   **Date Range:** 2021-2022
+    *   **Project Summary:** Andrés Navarrete was the Principal Investigator for this endline evaluation. No further details provided in the sources beyond the title and dates.
+    *   **Sectors:** Human rights.
+    *   **Methodologies:** Not specified.
+
+*   **Project Title:** **External Evaluation of the Tiphunzire (Let’s Learn) GEC Project**
+    *   **Client:** Theatre for a Change, Malawi
+    *   **Date Range:** May 2014 – April 2017 (Tariq's involvement), 2015-2016 (Andres's involvement)
+    *   **Project Summary:** One South coordinated field deployment for data collection across 10 districts (Baseline, Midline, Endline). They conducted analysis and reporting of learning outcome data, managed client relationships and budgeting, developed and pilot-tested research instruments, and ensured evaluation alignment with Fund Manager compliance requirements. They also trained and supervised a team of 40 enumerators for the collection of literacy, numeracy, girls’ survey, and household data. The project aimed to improve access, retention, and learning for 9,000 marginalized girls across 10 districts of Malawi through improved teaching quality and Girls’ Clubs.
+    *   **Sectors:** Education.
+    *   **Methodologies:** Data analysis and reporting, Research instrument development and pilot-testing.
+
+*   **Project Title:** **Baseline Study of the Changing Futures for Girls Project**
+    *   **Client:** Build Africa, Kenya
+    *   **Date Range:** March 2015 – April 2015 (Tariq's involvement), 2015-2016 (Andres's involvement)
+    *   **Project Summary:** One South developed and piloted research instruments, coordinated the deployment of an enumerator team, and analyzed data on instructional practices and gender-sensitive teaching. They also managed client relationships and budgeting. The project focused on improving the capacity of communities and schools to address violence and abuse and creating a girl-friendly environment supportive of girls’ enrolment, access, and learning in schools.
+    *   **Sectors:** Education.
+    *   **Methodologies:** Data analysis, Research instrument development and piloting.
+
+*   **Project Title:** **Baseline Study of the Wasichana Project**
+    *   **Client:** Build Africa, Kenya
+    *   **Date Range:** April 2015 – May 2015 (Tariq's involvement), 2015-2016 (Andres's involvement)
+    *   **Project Summary:** One South developed and piloted research instruments, coordinated the deployment of an enumerator team, and analyzed data on parental and community values towards girls’ education. They also managed client relationships and budgeting. The project aimed to improve the quality of education for disadvantaged girls in Kwale County, Kenya.
+    *   **Sectors:** Education.
+    *   **Methodologies:** Data analysis, Research instrument development and piloting.
+
+*   **Project Title:** **Remote Learning Research Study of the Skills to Succeed Programme (multi-country)**
+    *   **Client:** Save the Children US
+    *   **Date Range:** 2022-2023
+    *   **Project Summary:** No specific summary provided in the sources beyond the project title and date range.
+    *   **Sectors:** Education.
+    *   **Methodologies:** Not specified.
+
+*   **Project Title:** **Midterm Evaluation of the Advancing Equality through Human Rights Education (AEHRE) Programme**
+    *   **Client:** Equitas
+    *   **Date Range:** October 2022 – January 2023
+    *   **Project Summary:** This midline evaluation used contribution analysis and participatory qualitative methods to evaluate the theory of change and program outcomes across diverse country contexts. The AEHRE program aimed to empower women and girls and advance gender equality through community mobilization, human rights education, and policy engagement in five countries. James Gathogo developed tools, coordinated multilingual field teams, managed data quality and triangulation, and led contribution analysis.
+    *   **Sectors:** Human Rights, Gender Equality and Social Inclusion (GESI), Advocacy and Campaigns.
+    *   **Methodologies:** Contribution Analysis, Participatory Evaluation, Document Review, Qualitative Thematic Analysis.
+
+*   **Project Title:** **Impact Delivery Team (Girls Not Brides) / Global MEL System Developer**
+    *   **Client:** Girls Not Brides
+    *   **Date Range:** 2021-2023 (Andres's involvement), December 2022 – November 2023 (James's involvement)
+    *   **Project Summary:** One South led the development and rollout of a global MEL system for Girls Not Brides, enhancing monitoring and reporting capacity across its network of over 1,600 partner organizations. This initiative focused on strengthening the MEL system across a large, multilingual advocacy and programmatic network working to end child marriage. It involved developing dashboards, training resources, and multilingual MEL tools to support capacity building and evidence use in over 100 countries.
+    *   **Sectors:** Child Protection, Human Rights, Advocacy and Campaigns, Gender Equality and Social Inclusion (GESI), Monitoring, Evaluation, Accountability and Learning (MEAL).
+    *   **Methodologies:** MEL System Design, Capacity Building, Multilingual Tool Development, Learning Content Development.
+
+*   **Project Title:** **International AIDS Society (IAS) Mentorship Programme / Youth Leadership Courses**
+    *   **Client:** International AIDS Society (IAS)
+    *   **Date Range:** 2021-Present (Andres's involvement), March 2024 – Present (James's involvement), Not specified but within Tariq's Founding Member & Senior Consultant role
+    *   **Project Summary:** One South supported the International AIDS Society in developing and professionalizing MEL capacity among young project leaders through the creation of practical, accessible learning content and mentorship. The project aimed to strengthen the technical capacity of young HIV project leaders globally by developing self-paced online courses and mentorship support on MEL, fundraising, and project management, tailored to the needs of busy youth program managers. This included designing and facilitating webinar series for Youth Champions on "Introduction to Project Management" and "Introduction to M&E".
+    *   **Sectors:** Health, HIV/AIDS, Leadership Development, Capacity Development, Youth Leadership.
+    *   **Methodologies:** Capacity Building, Capacity Strengthening, Indicator Frameworks, MEL Mentorship, Learning Content Development.
+
+*   **Project Title:** **Situation Analysis of Comprehensive Sexuality Education in Secondary Schools (Malawi)**
+    *   **Client:** UNESCO
+    *   **Date Range:** 2021-2022
+    *   **Project Summary:** No specific summary provided in the sources beyond the project title and date range.
+    *   **Sectors:** Education.
+    *   **Methodologies:** Not specified.
+
+*   **Project Title:** **Baseline Evaluation of the iHeard Programme (Malawi)**
+    *   **Client:** Farm Radio International, Girl Effect, WCF
+    *   **Date Range:** October 2022 – January 2023
+    *   **Project Summary:** One South supported the design and implementation of this baseline study, which included tool development, field team coordination, data collection supervision, and preliminary data analysis. The project aimed to increase the realization of sexual and reproductive health and rights (SRHR) by adolescent girls and young women (AGYW) in Malawi.
+    *   **Sectors:** Health, Sexual and Reproductive Health and Rights (SRHR), Adolescent and Youth Development, Gender Equality and Social Inclusion (GESI), Monitoring, Evaluation, Accountability and Learning (MEAL).
+    *   **Methodologies:** Tool development and programming (KoBoToolbox), Field data collection coordination and supervision, Quality control, Preliminary data analysis (descriptive, cross-tabulation).
+
+*   **Project Title:** **Endline Evaluation of the Girls’ Education Challenge (GEC-T) MGCubed Project (Ghana)**
+    *   **Client:** Plan UK
+    *   **Date Range:** 2019-2021
+    *   **Project Summary:** No specific summary provided in the sources beyond the project title and date range.
+    *   **Sectors:** Education.
+    *   **Methodologies:** Not specified.
+
+*   **Project Title:** **Child-friendly Accountability Programme (CFAcc) / WEB Safe & Wise Campaign (multi-country)**
+    *   **Client:** ChildFund Alliance
+    *   **Date Range:** 2019-2021 (Andres's involvement), April 2023 – June 2024 (James's involvement)
+    *   **Project Summary:** This assignment involved MEL system development and a mid-term review. The campaign promotes online safety and responsible digital citizenship among children, aiming to strengthen policies on child online protection and equip children to participate safely and ethically in digital spaces.
+    *   **Sectors:** Child Protection, Digital Safety and Citizenship, Advocacy and Campaigns, Monitoring, Evaluation, Accountability and Learning (MEAL).
+    *   **Methodologies:** MEL System Design, Mid-Term Review, Theory of Change Review, After Action Review, Document Review.
+
+*   **Project Title:** **Monitoring and Evaluation (MEL) System and KPI Dashboard for Amnesty International**
+    *   **Client:** Amnesty International
+    *   **Date Range:** 2023-Present (Andres's involvement), January 2024 – Present (James's involvement), 2023-2025 (James & Tariq's involvement), Expected to commence July 1, 2025
+    *   **Project Summary:** One South has provided extensive experience in developing dashboards and data visualization tools for Amnesty International to enhance programming, communicate impact, and make better decisions. This includes annual analysis of a global set of KPIs to measure the movement’s performance against its strategy and deliver digestible reports to the General Assembly and Board. The work involves compiling data from national entities, agreeing on methodologies, designing data collection tools, as well as data cleaning, verification, analysis, and reporting processes. The scope also expanded to include the development of a KPI Dashboard for the Global Strategy Group. One South will review Amnesty’s 8 Global KPIs and 23 sub-indicators, making recommendations to improve KPI calculations, especially for impact on duty bearers, communities, and supporter retention. They will also consider approaches to assess relationships between KPIs and other metrics and propose improved ways to disaggregate and visualize data. The project also includes capacity building for Amnesty’s core team on data collection methodologies.
+    *   **Sectors:** Health, Human Rights, Education, Organisational Effectiveness, Monitoring, Evaluation, Accountability and Learning (MEAL), Data Visualisation and Analytics.
+    *   **Methodologies:** Data visualization, Dashboard development, User-centred design, Sensemaking facilitation, Building for sustainability and adaptability, Data collection tools design, Data cleaning, verification, analysis, and reporting, KPI Tracking & Benchmarking, Data analysis, Report production.
+
+*   **Project Title:** **Zambia Inclusive Education "Tusambilile Chapamo” (Let’s Learn Together) End of Term Evaluation**
+    *   **Client:** Sightsavers
+    *   **Date Range:** October 2024 – April 2025 (Inception Report published September 2024)
+    *   **Project Summary:** This End of Term Evaluation (ETE) assesses the project’s performance and derives essential insights for future program development. The "Tusambilile Chapamo" project, funded by the European Commission, aims to develop a low-cost, inclusive education model that spans early childhood to vocational education, focusing on children and youth with disabilities in Zambia. It addresses systemic challenges like lack of access, stigma, limited teacher capacity, and weak infrastructure. The evaluation uses a mixed-methods approach to assess relevance, effectiveness, impact, sustainability, scalability, and equity and inclusion, with a specific focus on the low-cost inclusive education model’s effectiveness and potential for replication.
+    *   **Sectors:** Inclusive Education, Disability, Monitoring, Evaluation, Accountability and Learning (MEAL).
+    *   **Methodologies:** Mixed-methods, Qualitative study, Document Review, Most Significant Change (MSC), Outcome Harvesting, Thematic analysis, Statistical analysis.
+
+*   **Project Title:** **Case Study Review for Transform Health National Coalitions (Kenya, Ecuador, Indonesia)**
+    *   **Client:** Transform Health
+    *   **Date Range:** August 2024 – May 2025
+    *   **Project Summary:** One South conducted multi-country documentation of national coalition experiences and pathways toward digital health policy and legislation in Kenya, Ecuador, and Indonesia. The case study aimed to document the evolution, best practices, and advocacy strategies of Transform Health national coalitions, particularly their influence in shaping digital health policies like Kenya’s Digital Health Act. James Gathogo led the Kenya case study, conducted stakeholder interviews, analyzed coalition documents, and co-authored the synthesis report.
+    *   **Sectors:** Digital Health, Health Systems, Advocacy and Campaigns, Monitoring, Evaluation, Accountability and Learning (MEAL).
+    *   **Methodologies:** Case Study Documentation, Key Informant Interviews, Document Review, Qualitative Thematic Analysis.
+
+*   **Project Title:** **Endline Evaluation of the Accelerating Youth-led Businesses in the Digital Era Programme**
+    *   **Client:** Youth Business International
+    *   **Date Range:** October 2022 – November 2022
+    *   **Project Summary:** One South evaluated a multi-country program supporting youth entrepreneurship in Bangladesh and India through digital skills and business mentorship. The program, supported by IKEA Foundation, aimed to empower youth entrepreneurs with decent work principles, business planning, and digital tools, also addressing gender and inclusion in access to finance, networks, and markets. James Gathogo led the evaluation design, managed remote field teams, developed tools, conducted qualitative and quantitative analysis, and applied contribution analysis and collaborative outcomes reporting.
+    *   **Sectors:** Youth Economic Empowerment, Youth Entrepreneurship, Digital Skills Training, Gender Equality and Social Inclusion (GESI), Decent Work and Employment.
+    *   **Methodologies:** Mixed-methods, Collaborative Outcomes Reporting (COR), Contribution Analysis.
+
+*   **Project Title:** **Final Evaluation for Road to Growth Kenya Project**
+    *   **Client:** Cherie Blair Foundation
+    *   **Date Range:** June 2022 – July 2022
+    *   **Project Summary:** This evaluation assessed the Road to Growth Kenya project, implemented by CBF and Sinapis, which aimed to support women entrepreneurs. The project sought to empower 3,500 women entrepreneurs with business skills, financial literacy, and leadership through digital tools like the HerVenture App, online training, and advocacy sessions. James Gathogo led the evaluation, including design, secondary data analysis, facilitation of qualitative FGDs and KIIs, and synthesis of findings.
+    *   **Sectors:** Financial Literacy, Women’s Economic Empowerment, Entrepreneurship, Leadership Development.
+    *   **Methodologies:** Collaborative Outcomes Reporting (COR), Contribution Analysis, Mixed-methods.
+
+*   **Project Title:** **Tuwekeze Pamoja Project Evaluation & Value for Money Analysis**
+    *   **Client:** Save the Children
+    *   **Date Range:** April 2022 – November 2022 (James's involvement for Evaluation and VFM analysis)
+    *   **Project Summary:** This project involved a final evaluation and a value-for-money analysis of an early childhood development program targeting caregivers, teachers, and communities in Tanzania. The program aimed to improve early childhood development and learning outcomes, reaching over 30,000 children and supporting policy and system strengthening. The VFM analysis appraised the project’s economy, efficiency, effectiveness, and equity using cost and outcome data.
+    *   **Sectors:** Early Childhood Development, Inclusive Education, Monitoring, Evaluation, Accountability and Learning (MEAL), Gender Equality and Social Inclusion (GESI).
+    *   **Methodologies:** Value-for-Money (VFM), Cost-Effectiveness Analysis, Equity Analysis, Mixed-methods, Theory-Based Evaluation, Focus Group Discussions, Key Informant Interviews, Document Review.
+
+*   **Project Title:** **Baseline and Gender Analysis for Daring to Shift Project**
+    *   **Client:** Digital Opportunity Trust (DOT)
+    *   **Date Range:** August 2021 – February 2022
+    *   **Project Summary:** One South supported this baseline evaluation and gender analysis across nine countries using mixed-methods and longitudinal design. The project aimed to improve economic inclusion for young women through training in digital skills and social entrepreneurship, promoting youth agency and engagement through national ecosystem strengthening. Tariq Omarshah was a Principal Investigator for the gender analysis and baseline study for this 9-country project.
+    *   **Sectors:** Youth Economic Empowerment, Gender Equality and Social Inclusion (GESI), Digital Skills Training, Entrepreneurship, Monitoring, Evaluation, Accountability and Learning (MEAL).
+    *   **Methodologies:** Mixed-methods, Gender Analysis, Participatory Evaluation, Multilingual Tool Development.
+
+*   **Project Title:** **Designing a Youth-Led SRH Empowerment Programme**
+    *   **Client:** International Planned Parenthood Federation (IPPF)
+    *   **Date Range:** 2022
+    *   **Project Summary:** One South facilitated the theory of change design for a global gender transformative and youth-led Sexual and Reproductive Health (SRH) rights realization program. This involved leading a co-design process with youth and federation staff to design a $2M program supporting youth and underrepresented groups to realize their sexual and reproductive health rights.
+    *   **Sectors:** Sexual and Reproductive Health and Rights (SRHR), Health.
+    *   **Methodologies:** Theory of Change design, Co-design process.
+
+*   **Project Title:** **MEL Framework Design for the Girls Education Challenge - Transitions Rwanda Education Advancement Programme**
+    *   **Client:** Health Poverty Action
+    *   **Date Range:** Not explicitly stated, but was undertaken by Tariq Omarshah as a Founding Partner & Consultant between March 2012 and April 2016.
+    *   **Project Summary:** One South, through Tariq Omarshah, was responsible for the design of the Monitoring, Evaluation, and Learning (MEL) framework for this program.
+    *   **Sectors:** Education.
+    *   **Methodologies:** MEL Framework Design.
