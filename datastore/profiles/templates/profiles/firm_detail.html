@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ firm.firm_name }} Details</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; margin: 2em; color: #333; background-color: #fdfdfd; }
+        .container { max-width: 800px; margin: auto; }
+        h1, h2 { color: #111; border-bottom: 2px solid #eee; padding-bottom: 0.3em;}
+        .section { margin-bottom: 2em; }
+        ul { list-style-type: disc; padding-left: 20px; }
+        strong { color: #000; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <h1>{{ firm.firm_name }}</h1>
+            <p><em>{{ firm.tagline }}</em></p>
+            <p><strong>Founded:</strong> {{ firm.founded_year }}</p>
+            <p><strong>Website:</strong> <a href="{{ firm.website }}" target="_blank">{{ firm.website }}</a></p>
+            <p><strong>Email:</strong> {{ firm.email }}</p>
+            <p><strong>Address:</strong> {{ firm.address }}</p>
+        </div>
+
+        <div class="section">
+            <h2>Vision & Mission</h2>
+            <p><strong>Vision:</strong> {{ firm.vision }}</p>
+            <p><strong>Mission:</strong> {{ firm.mission }}</p>
+        </div>
+
+        <div class="section">
+            <h2>Approach</h2>
+            <p>{{ firm.approach_summary }}</p>
+        </div>
+
+        <div class="section">
+            <h2>Services Offered</h2>
+            <ul>
+                {% for service in firm.services_offered %}
+                    <li>{{ service }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Thematic Sectors</h2>
+            <ul>
+                {% for sector in firm.thematic_sectors %}
+                    <li>{{ sector }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
