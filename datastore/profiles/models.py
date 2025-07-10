@@ -9,7 +9,7 @@ class Firm(models.Model):
     
     # --- Contact Information ---
     email = models.EmailField(blank=True, null=True, help_text="Primary contact email for the firm.")
-    website = models.URLField(blank=True, null=True, help_text="Official website URL.")
+    website = models.URLField(max_length=2000, blank=True, null=True, help_text="Official website URL.")
     phone = models.CharField(max_length=50, blank=True, null=True, help_text="Primary contact phone number.")
     address = models.CharField(max_length=255, blank=True, null=True, help_text="Principal office address, e.g., Wilmington, Delaware, USA")
 
@@ -37,6 +37,29 @@ class Firm(models.Model):
     def __str__(self):
         return self.firm_name
 
+
+# --- NEW: Central Project Model ---
+# This model stores the official, "firm-level" view of a project.
+class Project(models.Model):
+    title = models.CharField(max_length=255, unique=True)
+    client = models.CharField(max_length=255, blank=True, null=True)
+    start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
+    
+    # The official, high-level summary for proposals
+    project_summary = models.TextField(blank=True, null=True)
+    
+    # Technical details from the firm's perspective
+    sectors = models.JSONField(blank=True, null=True)
+    methodologies = models.JSONField(blank=True, null=True)
+    
+    # Link to the primary firm that holds this project in its portfolio
+    firm_portfolio = models.ForeignKey(Firm, on_delete=models.SET_NULL, blank=True, null=True, related_name='projects', help_text="The firm that holds this project in its portfolio. Can be empty for independent projects.")
+
+    def __str__(self):
+        return self.title
+
+
 # === Models based on master_cv.json ===
 
 class Consultant(models.Model):
@@ -44,13 +67,34 @@ class Consultant(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=50, blank=True, null=True)
-    linkedin = models.URLField(blank=True, null=True)
+    linkedin = models.URLField(max_length=2000, blank=True, null=True)
 
     # --- Relationships ---
-    firms = models.ManyToManyField(Firm, blank=True, help_text="Firms this consultant is associated with.")
+    firms = models.ManyToManyField(Firm, related_name='consultants', blank=True, help_text="Firms this consultant is associated with.")
 
     def __str__(self):
         return self.name
+    
+# --- NEW: Linking Model for Consultant Roles ---
+# This model connects a Consultant to a Project and describes their specific role.
+# This REPLACES the old "Assignment" model.
+class ConsultantRole(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='roles')
+    consultant = models.ForeignKey(Consultant, on_delete=models.CASCADE, related_name='roles')
+    
+    # The consultant's specific title on this project
+    role_title = models.CharField(max_length=255, help_text="e.g., Lead Evaluator, Data Analyst, Project Manager")
+    
+    # The consultant's personal description of their tasks and contributions
+    role_description = models.TextField(blank=True, null=True)
+    tasks = models.TextField(blank=True, null=True, help_text="Bulleted or paragraph list of specific tasks performed.")
+
+    class Meta:
+        # Ensures a consultant can't have two roles on the same project
+        unique_together = ('project', 'consultant')
+
+    def __str__(self):
+        return f"{self.consultant.name} as {self.role_title} on {self.project.title}"
 
 class Education(models.Model):
     consultant = models.ForeignKey(Consultant, related_name='education', on_delete=models.CASCADE)
@@ -74,27 +118,11 @@ class Certification(models.Model):
     issue_date = models.DateField(blank=True, null=True)
     expiry_date = models.DateField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    certification_link = models.URLField(blank=True, null=True)
+    certification_link = models.URLField(max_length=2000, blank=True, null=True)
 
     def __str__(self):
         return self.certification_name
 
-class Assignment(models.Model):
-    consultant = models.ForeignKey(Consultant, related_name='assignments', on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
-    organization = models.CharField(max_length=255)
-    location = models.CharField(max_length=255, blank=True, null=True)
-    start_date = models.DateField(blank=True, null=True)
-    end_date = models.DateField(blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
-    project_summary = models.TextField(blank=True, null=True)
-    role_summary = models.TextField(blank=True, null=True)
-    tasks = models.TextField(blank=True, null=True)
-    sectors = models.JSONField(blank=True, null=True)
-    methodologies = models.JSONField(blank=True, null=True)
-
-    def __str__(self):
-        return self.title
 
 class Publication(models.Model):
     consultant = models.ForeignKey(Consultant, related_name='publications', on_delete=models.CASCADE)
@@ -102,7 +130,7 @@ class Publication(models.Model):
     authors = models.CharField(max_length=500)
     year = models.PositiveIntegerField(blank=True, null=True)
     publisher = models.CharField(max_length=255, blank=True, null=True)
-    link = models.URLField(blank=True, null=True)
+    link = models.URLField(max_length=2000, blank=True, null=True)
 
     def __str__(self):
         return self.title
