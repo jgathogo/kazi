@@ -111,3 +111,14 @@
 **Certifications**: Monitoring and Evaluation Certification Program (International Labor Organization), Professional Project Management (TUD), Design Thinking (TUD), Business Accounting (Georgetown University).
 **Languages**: German (native), English (fluent), Spanish (fluent), French (intermediate), Portuguese (basic).
 **Location**: Germany (based in Dresden), with experience in Latin America, U.S., India, Kenya, Malawi, Ghana, Rwanda, Mozambique, Bangladesh, Zambia.
+
+# B. Joel K. Maina
+**Name**: B. Joel K. Maina
+**Education**: MSc. Collaborative Masters in Agricultural and Applied Economics (CMAAE) (Egerton University, University of Pretoria), BSc. Agricultural Economics (Egerton University)
+**Roles**: Joel is the **Founding Director and Principal Consultant/Agricultural Economist** (African Research and Economic Development Consultants - AFREDEC). He also serves as a **Short Term Consultant/Economic & Financial Analyst** (The World Bank) and **Impact Monitoring Partner** (AdOpes Limited). Previously, he worked as a Researcher/Agricultural Economist/Agribusiness Development Specialist for Freelance Consultant and Agricom Consultants Ltd.
+**Projects**: Joel has led over 40 studies including baselines, midlines, and impact assessments. His experience spans **economic and financial analysis** for large-scale infrastructure projects (water, sanitation, irrigation, dams) and **strategic planning** for national bodies (e.g., National Climate Change Action Plan III, National Irrigation Authority). He conducts **market studies and business planning** for agriculture, food processing, and rural enterprises, and undertakes **evaluations and policy analysis** in areas like food security, agribusiness, and gender.
+**Donors of assignments**: World Bank Group, GIZ, AfDB, EU, AGRA, FAO, USAID, KfW, DANIDA (via MESPT), NORAD (via Equity Group Foundation).
+**Sectors**: Agricultural Economics, Monitoring & Evaluation (M&E), Financial & Economic Analysis, Water, Sanitation, Irrigation, Climate Change, Food Security, Youth Livelihoods & Empowerment, Agribusiness, Policy, Rural Development, Biodiversity Conservation, Capacity Building for SMEs.
+**Certifications**: Public Policy Analysis (Certificate), Monitoring and Evaluation (Certificate), Africa Project Finance program (Certificate).
+**Languages**: English (Excellent), Swahili (Excellent).
+**Location**: Kenya (Citizenship/Residence), with work experience across East Africa, Southern Africa, and West Africa, including Uganda, Tanzania, Rwanda, Burundi, DRC, Zimbabwe, Malawi, Zambia, Mozambique, Seychelles, Comoros, Liberia, Nigeria, Ethiopia, Somalia, and South Sudan.
