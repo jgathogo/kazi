@@ -68,6 +68,7 @@ class Consultant(models.Model):
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=50, blank=True, null=True)
     linkedin = models.URLField(max_length=2000, blank=True, null=True)
+    summary_profile = models.TextField(blank=True, null=True)
 
     # --- Relationships ---
     firms = models.ManyToManyField(Firm, related_name='consultants', blank=True, help_text="Firms this consultant is associated with.")
