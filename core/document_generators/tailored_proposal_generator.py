@@ -89,7 +89,9 @@ def generate_dynamic_section_content(tor_analysis_data: dict, proposal_structure
     # Prepare the prompt with all necessary context
     tor_analysis_json = json.dumps(tor_analysis_data, indent=2)
     proposal_structure_json = json.dumps(proposal_structure, indent=2)
-    team_context_summary_json = json.dumps(team_context_summary, indent=2)
+    # NEW: Serialize the full team and firm data to be passed to the LLM
+    selected_consultants_json = json.dumps(selected_consultants_data, indent=2)
+    selected_firm_json = json.dumps(selected_firm_data, indent=2) if selected_firm_data else "{}"
     
     # Extract key context from tor_analysis_data
     assignment_essence = tor_analysis_data.get("assignment_essence", {})
@@ -99,7 +101,9 @@ def generate_dynamic_section_content(tor_analysis_data: dict, proposal_structure
     
     prompt = prompt_template.replace("{{tor_analysis_json}}", tor_analysis_json)
     prompt = prompt.replace("{{proposal_structure_json}}", proposal_structure_json)
-    prompt = prompt.replace("{{team_context_summary}}", team_context_summary_json)
+    prompt = prompt.replace("{{team_context_summary}}", team_context_summary) # The summary is still useful for a high-level overview
+    prompt = prompt.replace("{{selected_consultants_data}}", selected_consultants_json) # Pass the full consultant data
+    prompt = prompt.replace("{{selected_firm_data}}", selected_firm_json) # Pass the full firm data
     prompt = prompt.replace("{{assignment_type}}", assignment_type)
     prompt = prompt.replace("{{client_context}}", client_context)
     prompt = prompt.replace("{{core_problem}}", core_problem)
@@ -149,15 +153,11 @@ def assemble_customized_proposal_markdown(base_tor_filename: str, timestamp: str
             if consultant.get('summary_profile'):
                 proposal_content += f"\n{consultant['summary_profile']}\n\n"
         
-        # Add executive summary if it exists
-        if "1" in section_contents:
-            proposal_content += f"## Executive Summary\n\n{section_contents['1']}\n\n"
-        
-        # Add all other sections in order
+        # Add all sections in the order defined by the proposal structure
         sections = proposal_structure["proposal_structure"]["sections"]
         for section in sections:
             section_num = section["section_number"]
-            if section_num in section_contents and section_num != "1":  # Skip exec summary as it's already added
+            if section_num in section_contents:
                 section_title = section["section_title"]
                 proposal_content += f"## {section_title}\n\n{section_contents[section_num]}\n\n"
         

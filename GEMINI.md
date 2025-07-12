@@ -77,7 +77,25 @@ The three core prompts in `prompts/templates/consultancy-tailored/` were signifi
     *   Implemented `check_db_connection()` to perform a pre-check for database connectivity, aborting the pipeline early if the connection fails.
     *   Implemented `select_team_for_proposal()` to allow interactive selection of firms and individual consultants from the database.
 
-**Current Status:** The `consultancy-tailored` pipeline now runs successfully end-to-end, including interactive team selection and database integration via direct MySQL queries. The selected firm and consultant information is now correctly displayed in the generated proposal, and the LLM is effectively incorporating relevant team expertise into the narrative sections.
+**Current Status:** The `consultancy-tailored` pipeline now runs successfully end-to-end. It features interactive team selection from the database and passes the complete, detailed profiles of the selected firm and all chosen consultants directly to the LLM. This provides the model with rich, specific evidence (projects, roles, tasks) to generate highly tailored and persuasive proposal content, moving beyond generic summaries. The final assembled document correctly displays the full team's information.
+
+### 4.6. Enhanced Team Data Integration in Tailored Pipeline
+
+*   **Multi-Consultant Selection:** The `run_tor_analysis_tailored_pipeline` was upgraded from using a single consultant's data to a fully interactive team selection process via the `select_team_for_proposal` function. This allows the user to select a firm and/or multiple individual consultants for a proposal.
+*   **Rich Context for LLM:** Instead of passing a simple summary, the pipeline now retrieves the **full, detailed profiles** for all selected consultants and the selected firm from the database. This includes all projects, roles, tasks, education, etc.
+*   **Dual-Context Injection:** This rich data is passed to the `dynamic_content_generator_prompt.txt` in two forms:
+    1.  **Full Data (JSON):** The complete `selected_consultants_data` and `selected_firm_data` are serialized to JSON and injected into the prompt, giving the LLM access to every detail for writing evidence-based narrative sections.
+    2.  **Concise Summary:** A helper function, `_generate_team_context_summary`, creates a brief, human-readable summary that is also injected, giving the LLM a quick high-level overview of the team's composition.
+
+### 4.7. Core Principle: Data Quality ("Garbage In, Garbage Out")
+
+A key operational principle was established: the quality of the generated proposals is fundamentally limited by the quality, completeness, and detail of the data within the `kazi_db` database.
+
+*   **High-Priority Fields:** To ensure high-quality, evidence-based outputs, the following database fields must be meticulously maintained:
+    *   `profiles_consultant.summary_profile`
+    *   `profiles_firm.approach_summary`
+    *   `profiles_project.project_summary`
+    *   **`profiles_consultantrole.tasks`**: This is the most critical field, as it provides the specific, quantifiable actions the LLM uses to build compelling narratives.
 
 ## 5. Running Tests
 

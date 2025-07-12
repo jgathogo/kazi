@@ -388,6 +388,8 @@ def select_team_for_proposal() -> list[str] | None:
     Returns a list of selected consultant emails, or None if the process is aborted.
     """
     settings.log_info("\n--- Team Selection for Proposal ---")
+    selected_firm_data = None
+    selected_consultant_emails = []
 
     # Option 1: Select a firm and its consultants
     firms = get_all_firms_summary()
@@ -399,108 +401,9 @@ def select_team_for_proposal() -> list[str] | None:
                 settings.log_info(f"   Summary: {firm['approach_summary'][:150]}...") # Truncate for display
 
         while True:
+            # CORRECTED: Used triple quotes for the multi-line prompt
             choice = input("""
 Do you want to apply as a firm (enter firm number) or select individual consultants (type 'individual')? Type 'abort' to cancel: """).strip().lower()
-            if choice == 'abort':
-                settings.log_info("Team selection aborted.")
-                return None
-            elif choice == 'individual':
-                break # Proceed to individual consultant selection
-            else:
-                try:
-                    firm_index = int(choice) - 1
-                    if 0 <= firm_index < len(firms):
-                        selected_firm = firms[firm_index]
-                        settings.log_info(f"Selected firm: {selected_firm['firm_name']}")
-                        
-                        consultants_in_firm = get_consultants_by_firm(selected_firm['id'])
-                        if consultants_in_firm:
-                            settings.log_info(f"Consultants in {selected_firm['firm_name']}:")
-                            for i, consultant in enumerate(consultants_in_firm):
-                                settings.log_info(f"{i+1}. {consultant['name']} ({consultant['email']})")
-                                if consultant['summary_profile']:
-                                    settings.log_info(f"   Summary: {consultant['summary_profile'][:100]}...") # Truncate
-
-                            while True:
-                                consultant_choices = input("""
-Enter numbers of consultants to include (e.g., '1,3,5'), or 'all' for all in this firm: """).strip().lower()
-                                if consultant_choices == 'all':
-                                    return [c['email'] for c in consultants_in_firm]
-                                else:
-                                    try:
-                                        selected_indices = [int(x.strip()) - 1 for x in consultant_choices.split(',')]
-                                        selected_consultant_emails = []
-                                        for idx in selected_indices:
-                                            if 0 <= idx < len(consultants_in_firm):
-                                                selected_consultant_emails.append(consultants_in_firm[idx]['email'])
-                                            else:
-                                                settings.log_error(f"Invalid consultant number: {idx+1}. Please try again.")
-                                                selected_consultant_emails = [] # Clear and re-ask
-                                                break
-                                        if selected_consultant_emails:
-                                            return selected_consultant_emails
-                                    except ValueError:
-                                        settings.log_error("Invalid input. Please enter numbers separated by commas, or 'all'.")
-                        else:
-                            settings.log_info(f"No consultants found for {selected_firm['firm_name']}.")
-                            # Fall through to individual selection or re-prompt for firm
-                            break 
-                    else:
-                        settings.log_error("Invalid firm number. Please try again.")
-                except ValueError:
-                    settings.log_error("Invalid input. Please enter a firm number, 'individual', or 'abort'.")
-    else:
-        settings.log_info("No firms found in the database. Proceeding to individual consultant selection.")
-
-    # Option 2: Select individual consultants
-    all_consultants = get_all_consultants_summary()
-    if not all_consultants:
-        settings.log_error("No consultants found in the database. Cannot proceed with team selection.")
-        return None
-
-    settings.log_info("""
-Available Individual Consultants:""")
-    for i, consultant in enumerate(all_consultants):
-        settings.log_info(f"{i+1}. {consultant['name']} ({consultant['email']})")
-        if consultant['summary_profile']:
-            settings.log_info(f"   Summary: {consultant['summary_profile'][:100]}...") # Truncate
-
-    while True:
-        consultant_choices = input("\nEnter numbers of consultants to include (e.g., '1,3,5'), or 'all' for all: ").strip().lower()
-        if consultant_choices == 'all':
-            return [c['email'] for c in all_consultants]
-        else:
-            try:
-                selected_indices = [int(x.strip()) - 1 for x in consultant_choices.split(',')]
-                selected_consultant_emails = []
-                for idx in selected_indices:
-                    if 0 <= idx < len(all_consultants):
-                        selected_consultant_emails.append(all_consultants[idx]['email'])
-                    else:
-                        settings.log_error(f"Invalid consultant number: {idx+1}. Please try again.")
-                        selected_consultant_emails = [] # Clear and re-ask
-                        break
-                if selected_consultant_emails:
-                    return selected_consultant_emails
-            except ValueError:
-                settings.log_error("Invalid input. Please enter numbers separated by commas, or 'all'.")
-
-    selected_firm_data = None
-    selected_consultant_emails = []
-
-    # Option 1: Select a firm and its consultants
-    firms = get_all_firms_summary()
-    if firms:
-        settings.log_info("""
-Available Firms:""")
-        for i, firm in enumerate(firms):
-            settings.log_info(f"{i+1}. {firm['firm_name']} - {firm['tagline']}")
-            if firm['approach_summary']:
-                settings.log_info(f"   Summary: {firm['approach_summary'][:150]}...") # Truncate for display
-
-        while True:
-            choice = input("
-Do you want to apply as a firm (enter firm number) or select individual consultants (type 'individual')? Type 'abort' to cancel: ").strip().lower()
             if choice == 'abort':
                 settings.log_info("Team selection aborted.")
                 return None
@@ -522,8 +425,9 @@ Do you want to apply as a firm (enter firm number) or select individual consulta
                                     settings.log_info(f"   Summary: {consultant['summary_profile'][:100]}...") # Truncate
 
                             while True:
-                                consultant_choices = input("
-Enter numbers of consultants to include (e.g., '1,3,5'), or 'all' for all in this firm: ").strip().lower()
+                                # CORRECTED: Used triple quotes for the multi-line prompt
+                                consultant_choices = input("""
+Enter numbers of consultants to include (e.g., '1,3,5'), or 'all' for all in this firm: """).strip().lower()
                                 if consultant_choices == 'all':
                                     selected_consultant_emails = [c['email'] for c in consultants_in_firm]
                                     break
@@ -569,6 +473,7 @@ Enter numbers of consultants to include (e.g., '1,3,5'), or 'all' for all in thi
                 settings.log_info(f"   Summary: {consultant['summary_profile'][:100]}...") # Truncate
 
         while True:
+            # CORRECTED: Used triple quotes for the multi-line prompt
             consultant_choices = input("""
 Enter numbers of consultants to include (e.g., '1,3,5'), or 'all' for all: """).strip().lower()
             if consultant_choices == 'all':
@@ -610,7 +515,6 @@ Enter numbers of consultants to include (e.g., '1,3,5'), or 'all' for all: """).
 
     return {"selected_consultants": full_selected_consultants_data, "selected_firm": selected_firm_data}
 
-
 def run_tor_analysis_tailored_pipeline(tor_pdf_filename: str) -> str | None:
 
     """
@@ -622,12 +526,6 @@ def run_tor_analysis_tailored_pipeline(tor_pdf_filename: str) -> str | None:
     # Pre-check database connection
     if not check_db_connection():
         settings.log_error("Database connection failed. Aborting pipeline.")
-        return None
-
-    # Team Selection
-    selected_consultant_emails = select_team_for_proposal()
-    if not selected_consultant_emails:
-        settings.log_info("Team selection cancelled or failed. Aborting pipeline.")
         return None
 
     team_data = select_team_for_proposal()
@@ -744,109 +642,6 @@ def run_tor_analysis_tailored_pipeline(tor_pdf_filename: str) -> str | None:
 
     settings.log_info("\n--- Tailored ToR Analysis and Customized Proposal Pipeline Completed Successfully ---")
     return full_proposal_md
-
-    """
-    Runs a tailored pipeline for analyzing ToR documents and generating customized proposals
-    that adapt to the specific requirements rather than following a rigid template.
-    """
-    settings.log_info(f"--- Starting Tailored ToR Analysis and Customized Proposal Pipeline for: {tor_pdf_filename} ---")
-
-    # Pre-check database connection
-    if not check_db_connection():
-        settings.log_error("Database connection failed. Aborting pipeline.")
-        return None
-    
-    base_tor_filename = os.path.splitext(os.path.basename(tor_pdf_filename))[0]
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    run_folder_name = f"{base_tor_filename}_{timestamp}"
-    llm_model_suffix = settings.LLM_MODEL_NAME.replace("gemini-", "")
-
-    current_step_outputs = {}
-
-    # Stage 1: Read ToR PDF
-    settings.log_info("\nStage 1: Reading ToR Document...")
-    tor_text = read_text_from_tor_storage(tor_pdf_filename)
-    if not tor_text:
-        settings.log_error(f"Failed to read ToR text from {tor_pdf_filename}. Aborting pipeline.")
-        return None
-
-    # Stage 2: Tailored ToR Analysis
-    settings.log_info("\nStage 2: Performing Tailored ToR Analysis...")
-    tor_analysis_data = analyze_terms_of_reference_tailored(tor_text)
-    if not tor_analysis_data:
-        settings.log_error("Failed to perform tailored ToR analysis. Aborting pipeline.")
-        return None
-    current_step_outputs["tor_analysis_data"] = tor_analysis_data
-    
-    # Save the tailored ToR analysis JSON
-    tor_analysis_json_str = json.dumps(tor_analysis_data, indent=2)
-    tor_analysis_output_filename = f"{base_tor_filename}_tailored_tor_analysis_{timestamp}_{llm_model_suffix}.json"
-    save_text_to_output_dir(tor_analysis_output_filename, tor_analysis_json_str, base_file=run_folder_name, app_type="consultancy-tailored")
-    settings.log_info(f"Stage 2: Tailored ToR Analysis JSON saved to output/{tor_analysis_output_filename}")
-
-    # Stage 3: Generate Customized Proposal Structure
-    settings.log_info("\nStage 3: Generating Customized Proposal Structure...")
-    proposal_structure = generate_customized_proposal_structure(
-        current_step_outputs["tor_analysis_data"]
-    )
-    if not proposal_structure:
-        settings.log_error("Failed to generate customized proposal structure. Aborting pipeline.")
-        return None
-    current_step_outputs["proposal_structure"] = proposal_structure
-
-    # Save the proposal structure JSON
-    structure_json_str = json.dumps(proposal_structure, indent=2)
-    structure_output_filename = f"{base_tor_filename}_customized_proposal_structure_{timestamp}_{llm_model_suffix}.json"
-    save_text_to_output_dir(structure_output_filename, structure_json_str, base_file=run_folder_name, app_type="consultancy-tailored")
-    settings.log_info(f"Stage 3: Customized Proposal Structure saved to output/{structure_output_filename}")
-
-    # Stage 4: Generate Dynamic Content for Each Section
-    settings.log_info("\nStage 4: Generating Dynamic Content for Each Section...")
-    master_cv_data = get_full_consultant_profile_as_dict(consultant_email)
-    if not master_cv_data:
-        settings.log_error("Failed to read master CV data. Aborting pipeline.")
-        return None
-    current_step_outputs["master_cv_data"] = master_cv_data
-
-    section_contents = {}
-    for section in proposal_structure["proposal_structure"]["sections"]:
-        settings.log_info(f"\nGenerating content for Section {section['section_number']}: {section['section_title']}...")
-        
-        section_content = generate_dynamic_section_content(
-            current_step_outputs["tor_analysis_data"],
-            current_step_outputs["proposal_structure"],
-            section,
-            current_step_outputs["master_cv_data"]
-        )
-        
-        if not section_content:
-            settings.log_error(f"Failed to generate content for section {section['section_title']}. Aborting pipeline.")
-            return None
-        
-        section_contents[section['section_number']] = section_content
-        
-        # Save individual section content
-        sanitized_section_title = sanitize_filename(section['section_title'])
-        section_output_filename = f"{base_tor_filename}_section_{section['section_number']}_{sanitized_section_title.replace(' ', '_').lower()}_{timestamp}_{llm_model_suffix}.md"
-        save_text_to_output_dir(section_output_filename, section_content, base_file=run_folder_name, app_type="consultancy-tailored")
-        settings.log_info(f"Section {section['section_number']} content saved to output/{section_output_filename}")
-
-    current_step_outputs["section_contents"] = section_contents
-
-    # Stage 5: Assemble Customized Proposal
-    settings.log_info("\nStage 5: Assembling Customized Proposal...")
-    full_proposal_md = assemble_customized_proposal_markdown(
-        base_tor_filename=base_tor_filename,
-        timestamp=timestamp,
-        llm_model_suffix=llm_model_suffix,
-        proposal_structure=current_step_outputs["proposal_structure"],
-        section_contents=current_step_outputs["section_contents"],
-        tor_analysis_data=current_step_outputs["tor_analysis_data"],
-        master_cv_data=current_step_outputs["master_cv_data"]
-    )
-    
-    if not full_proposal_md:
-        settings.log_error("Failed to assemble customized proposal Markdown. Aborting pipeline.")
         return None
 
     # Save the customized proposal
