@@ -75,7 +75,7 @@ def generate_customized_proposal_structure(tor_analysis_data: dict) -> dict | No
     return proposal_structure
 
 
-def generate_dynamic_section_content(tor_analysis_data: dict, proposal_structure: dict, section: dict, master_cv_data: dict) -> str | None:
+def generate_dynamic_section_content(tor_analysis_data: dict, proposal_structure: dict, section: dict, selected_consultants_data: list[dict], selected_firm_data: dict | None, team_context_summary: str) -> str | None:
     """
     Generates dynamic content for a specific section based on the tailored analysis.
     """
@@ -89,7 +89,7 @@ def generate_dynamic_section_content(tor_analysis_data: dict, proposal_structure
     # Prepare the prompt with all necessary context
     tor_analysis_json = json.dumps(tor_analysis_data, indent=2)
     proposal_structure_json = json.dumps(proposal_structure, indent=2)
-    master_cv_json = json.dumps(master_cv_data, indent=2)
+    team_context_summary_json = json.dumps(team_context_summary, indent=2)
     
     # Extract key context from tor_analysis_data
     assignment_essence = tor_analysis_data.get("assignment_essence", {})
@@ -99,7 +99,7 @@ def generate_dynamic_section_content(tor_analysis_data: dict, proposal_structure
     
     prompt = prompt_template.replace("{{tor_analysis_json}}", tor_analysis_json)
     prompt = prompt.replace("{{proposal_structure_json}}", proposal_structure_json)
-    prompt = prompt.replace("{{master_cv_data}}", master_cv_json)
+    prompt = prompt.replace("{{team_context_summary}}", team_context_summary_json)
     prompt = prompt.replace("{{assignment_type}}", assignment_type)
     prompt = prompt.replace("{{client_context}}", client_context)
     prompt = prompt.replace("{{core_problem}}", core_problem)
@@ -117,7 +117,7 @@ def generate_dynamic_section_content(tor_analysis_data: dict, proposal_structure
 
 def assemble_customized_proposal_markdown(base_tor_filename: str, timestamp: str, llm_model_suffix: str, 
                                         proposal_structure: dict, section_contents: dict, 
-                                        tor_analysis_data: dict, master_cv_data: dict) -> str | None:
+                                        tor_analysis_data: dict, selected_consultants_data: list[dict], selected_firm_data: dict | None) -> str | None:
     """
     Assembles the customized proposal from all generated sections.
     """
@@ -129,6 +129,25 @@ def assemble_customized_proposal_markdown(base_tor_filename: str, timestamp: str
         
         # Build the proposal content
         proposal_content = f"# {proposal_title}\n\n"
+
+        # Add Firm and Consultant Information
+        if selected_firm_data:
+            proposal_content += f"## Firm: {selected_firm_data['firm_name']}\n\n"
+            if selected_firm_data.get('tagline'):
+                proposal_content += f"> {selected_firm_data['tagline']}\n\n"
+            if selected_firm_data.get('approach_summary'):
+                proposal_content += f"### Our Approach\n{selected_firm_data['approach_summary']}\n\n"
+
+        proposal_content += "## Our Team\n\n"
+        for consultant in selected_consultants_data:
+            proposal_content += f"### {consultant['name']}\n\n"
+            proposal_content += f"* Email: {consultant['email']}\n"
+            if consultant.get('phone'):
+                proposal_content += f"* Phone: {consultant['phone']}\n"
+            if consultant.get('linkedin'):
+                proposal_content += f"* LinkedIn: {consultant['linkedin']}\n"
+            if consultant.get('summary_profile'):
+                proposal_content += f"\n{consultant['summary_profile']}\n\n"
         
         # Add executive summary if it exists
         if "1" in section_contents:

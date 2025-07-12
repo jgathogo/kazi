@@ -10,7 +10,7 @@ Kazi is a sophisticated Python-based system designed to automate the generation 
 
 *   **Language:** Python
 *   **LLM Integration:** Utilizes Google Gemini API (via `langchain` and `google-generativeai` libraries as per `requirements.txt`).
-*   **PDF Processing:** `pdfminer.six` for extracting text from PDF documents.
+*   **PDF Processing:** `pdfminer.six` for extracting text from PDF files.
 *   **Configuration:** `config/settings.py` for application-wide settings.
 
 ## 3. Core Workflows & Pipelines
@@ -43,7 +43,7 @@ The three core prompts in `prompts/templates/consultancy-tailored/` were signifi
 ### 4.2. Flexible File Input
 
 *   **`data_management/input_handler.py`**: Modified `read_pdf_text` to `read_file_text` to support reading both `.pdf` and `.txt` files. This involved adding logic to check file extensions and use `pdfminer` for PDFs or standard file reading for text files.
-*   **`core/orchestrator.py`**: Updated all calls to `read_pdf_text_from_jd_storage` and `read_pdf_text_from_tor_storage` to use the new `read_text_from_jd_storage` and `read_text_from_tor_storage` functions respectively.
+*   **`core/orchestrator.py`**: Updated all calls to `read_pdf_text_from_jd_storage` and `read_text_from_tor_storage` to use the new `read_text_from_jd_storage` and `read_text_from_tor_storage` functions respectively.
 
 ### 4.3. Filename Sanitization
 
@@ -55,12 +55,36 @@ The three core prompts in `prompts/templates/consultancy-tailored/` were signifi
 
 *   **`core/orchestrator.py`**: Modified the `run_tor_analysis_tailored_pipeline` function to create a unique, timestamped subdirectory for each run within the `output/consultancy-tailored/` path. This helps in organizing and comparing different iterations of generated proposals. The format is `[base_tor_filename]_[YYYYMMDD_HHMMSS]`.
 
+### 4.5. Database Integration & Troubleshooting
+
+**Problem:** The project migrated from using `master_cv.json` for consultant data to a MySQL database (`kazi_db`). This introduced `ModuleNotFoundError` and database connection issues when `data_management/db_handler.py` attempted to interact with the database.
+
+**Initial Approach (Django ORM):** Attempts were made to configure Django's ORM within the `db_handler.py` to correctly connect to the database. This involved:
+*   Correcting `DJANGO_SETTINGS_MODULE` path (`datastore.datastore.settings` then `datastore.settings`).
+*   Adding `datastore` directory to `sys.path`.
+*   Ensuring `__init__.py` existed in `datastore/`.
+*   Moving Django setup to `run.py` (later reverted).
+
+**Resolution (Direct MySQL Connection):** Due to persistent and complex Django ORM setup issues in a non-Django application context, the approach was shifted to direct MySQL database interaction.
+*   **`data_management/db_handler.py` was completely rewritten:**
+    *   Removed all Django ORM dependencies and setup code.
+    *   Now uses `MySQLdb` (the Python module for `mysqlclient`) for direct database connection.
+    *   All data retrieval is performed using raw SQL queries.
+    *   Error handling for `MySQLdb.Error` was implemented.
+    *   Removed `is_connected()` check from `finally` block as it's not supported by `MySQLdb`.
+*   **`core/orchestrator.py`:**
+    *   Imported `save_text_to_output_dir` from `data_management.output_handler` to resolve a `NameError`.
+    *   Implemented `check_db_connection()` to perform a pre-check for database connectivity, aborting the pipeline early if the connection fails.
+    *   Implemented `select_team_for_proposal()` to allow interactive selection of firms and individual consultants from the database.
+
+**Current Status:** The `consultancy-tailored` pipeline now runs successfully end-to-end, including interactive team selection and database integration via direct MySQL queries. The selected firm and consultant information is now correctly displayed in the generated proposal, and the LLM is effectively incorporating relevant team expertise into the narrative sections.
+
 ## 5. Running Tests
 
-To run the `consultancy-tailored` pipeline with a specific TOR file (e.g., `gate_jul_25.txt` located in `tor_storage/`), use the following command from the project root:
+To run the `consultancy-tailored` pipeline with a specific TOR file (e.g., `gate_jul_25.pdf` located in `tor_storage/`), use the following command from the project root:
 
 ```bash
-python run.py gate_jul_25.txt --type consultancy-tailored
+python run.py gate_jul_25.pdf --type consultancy-tailored
 ```
 
 Output will be saved in a timestamped folder under `output/consultancy-tailored/`.
@@ -68,5 +92,3 @@ Output will be saved in a timestamped folder under `output/consultancy-tailored/
 ## 6. Agent Operational Guidelines
 
 *   **File Visibility:** This agent is aware that `tor_storage/` and other data directories contain files that are intentionally ignored by `.gitignore`. When listing or searching these directories, the agent will use `respect_git_ignore=False` in its tool calls to ensure all files are visible for operational purposes, unless explicitly instructed otherwise.
-
-```

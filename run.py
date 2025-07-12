@@ -20,6 +20,12 @@ def main():
         default="job",
         help="Type of application to generate: 'job' for CV/Cover Letter, 'consultancy' for generic ToR analysis, 'consultancy-tailored' for dynamic, customized proposals."
     )
+    parser.add_argument(
+        "--consultant-email",
+        type=str,
+        default="james@gathogo.co.ke",
+        help="The email of the consultant whose profile should be used for generation. Defaults to 'james@gathogo.co.ke'."
+    )
     args = parser.parse_args()
 
     settings.log_info(f"--- Kazi CLI Started for {args.type.upper()} Application ---")
@@ -42,14 +48,6 @@ def main():
         settings.log_error(f"The specified file '{os.path.basename(args.input_filename)}' was not found in '{storage_dir}'.")
         settings.log_info("--- Kazi CLI Finished (with errors) ---")
         return
-
-    # Perform additional validation for 'job' type
-    if args.type == "job":
-        master_cv_path = os.path.join(settings.CV_DATA_DIR, settings.MASTER_CV_FILENAME)
-        if not os.path.exists(master_cv_path):
-            settings.log_error(f"Master CV file '{settings.MASTER_CV_FILENAME}' not found in '{settings.CV_DATA_DIR}'.")
-            settings.log_info("--- Kazi CLI Finished (with errors) ---")
-            return
     
     all_success = True
     for model_name in settings.LLM_MODELS_TO_RUN:
@@ -58,9 +56,9 @@ def main():
         
         success = False
         if args.type == "job":
-            success = run_full_application_package_pipeline(args.input_filename)
+            success = run_full_application_package_pipeline(args.input_filename, args.consultant_email)
         elif args.type == "consultancy":
-            result = run_tor_analysis_pipeline(args.input_filename)
+            result = run_tor_analysis_pipeline(args.input_filename, args.consultant_email)
             success = result is not None # Success if analysis data is returned
         elif args.type == "consultancy-tailored":
             result = run_tor_analysis_tailored_pipeline(args.input_filename)

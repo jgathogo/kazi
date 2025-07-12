@@ -1,0 +1,129 @@
+PS D:\apps\kazi> .\.venv\Scripts\activate     
+(.venv) PS D:\apps\kazi> python .\run.py .\tor_storage\gate_jul_25.pdf --type consultancy-tailored
+INFO: Google Generative AI configured.
+INFO: --- Kazi CLI Started for CONSULTANCY-TAILORED Application ---
+INFO: 
+--- Starting Pipeline for model: gemini-2.5-flash-preview-05-20 ---
+INFO: --- Starting Tailored ToR Analysis and Customized Proposal Pipeline for: .\tor_storage\gate_jul_25.pdf ---
+INFO: Database connection successful.
+INFO: 
+--- Team Selection for Proposal ---
+INFO: 
+Available Firms:
+INFO: 1. One South - Using   information to understand and deliver social change
+INFO:    Summary: One South believes that localizing research for development ensures sustainable results. The firm works closely with in-country partners, bringing tog...
+INFO: 2. Stephen Oupal Consultancy - Independent Monitoring, Evaluation, and Learning Consultant
+INFO:    Summary: Stephen Oupal employs a participatory and results-based approach to M&E, focusing on robust system design, data management, and capacity building. He ...
+INFO: 3. Dr. Amos Kahwa Consultancy - Seasoned public health researcher and evaluation expert across East Africa.
+INFO:    Summary: Specializes in participatory evaluations, systems mapping, and capacity development for CSOs. Deep expertise in qualitative and quantitative methods, ...
+INFO: 4. Emily Goldstein Consultancy - Accomplished monitoring, evaluation, and learning advisor specializing in gender and social inclusion.
+INFO:    Summary: Expert in quantitative and qualitative analysis, transforming raw data into concrete results. Proven track record of delivering high-quality results i...
+INFO: 5. Jo Seth-Smith Consultancy - Feminist | Gender Equity & SRHR | Consultant | Health, Rights and Power
+INFO:    Summary: Jo works with a strong focus on gender equity, SRHR, young people, and youth participation. She employs feminist leadership, builds strong relationshi...
+INFO: 6. Álvaro Bié Consultancy - Community Liaison and Participation Specialist | Social Behaviour Change Design
+INFO:    Summary: Expert in Community engagement in Health and Development projects. Main interest areas include education, health, gender, social inclusion, WASH and r...
+INFO: 7. Paradious Sakala Consultancy - Serving the community with diligence, dedication to duty, honesty, discipline, humility and respect for humanity. 
+INFO:    Summary: Paradious Sakala brings extensive experience in community social counseling, conflict management, strategic management planning, and project design fr...
+INFO: 8. Joel K. Maina Consultancy - Agricultural Economist / Financial & Economic Analyst / M&E Expert
+INFO:    Summary: Joel K. Maina brings extensive experience in economic and financial analysis, project costing, investment planning, and M&E support. He excels in tech...
+
+Do you want to apply as a firm (enter firm number) or select individual consultants (type 'individual')? Type 'abort' to cancel: 1
+INFO: Selected firm: One South
+INFO: Consultants in One South:
+INFO: 1. Eva Bolza-Schünemann (eva@onesouthgroup.com)
+INFO:    Summary: Name: Eva Bolza-Schünemann Education: MSc in Development Management (London School of Economics and ...
+INFO: 2. James Karanu Gathogo (james@gathogo.co.ke)
+INFO:    Summary: Name: James Karanu Gathogo Education: Master of Science (MSc) in Information Systems (University of ...
+INFO: 3. Tariq Omarshah (tariq.omarshah@one-south.org)
+INFO:    Summary: Name: Tariq Omarshah Education: Master of Science (MSc) in International Relations Theory (London Sc...
+
+Enter numbers of consultants to include (e.g., '1,3,5'), or 'all' for all in this firm: all
+INFO: Proceeding with primary consultant: eva@onesouthgroup.com
+INFO:
+Stage 1: Reading ToR Document...
+INFO: Attempting to read text from: D:\apps\kazi\tor_storage\gate_jul_25.pdf
+INFO: Successfully extracted text from PDF: D:\apps\kazi\tor_storage\gate_jul_25.pdf
+INFO:
+Stage 2: Performing Tailored ToR Analysis...
+INFO: Initiating Tailored ToR Analysis...
+INFO: Successfully loaded prompt: D:\apps\kazi\prompts\templates\consultancy\tor_analysis_prompt.txt
+INFO: Successfully received response from LLM model gemini-2.5-flash-preview-05-20.
+INFO: Successfully received tailored ToR analysis from LLM.
+INFO: Successfully extracted and validated JSON block from LLM response.
+INFO: Successfully extracted tailored ToR analysis JSON from LLM response.
+INFO: Successfully saved output to D:\apps\kazi\output\consultancy-tailored\gate_jul_25_20250712_083638\gate_jul_25_tailored_tor_analysis_20250712_083638_2.5-flash-preview-05-20.json
+INFO: Stage 2: Tailored ToR Analysis JSON saved to output/gate_jul_25_tailored_tor_analysis_20250712_083638_2.5-flash-preview-05-20.json
+INFO:
+Stage 3: Generating Customized Proposal Structure...
+INFO: Initiating Customized Proposal Structure Generation...
+INFO: Successfully loaded prompt: D:\apps\kazi\prompts\templates\consultancy-tailored\proposal_structure_generator_prompt.txt
+INFO: Successfully received response from LLM model gemini-2.5-flash-preview-05-20.
+INFO: Successfully received proposal structure from LLM.
+INFO: Successfully extracted and validated JSON block from LLM response.
+INFO: Successfully extracted proposal structure JSON from LLM response.
+INFO: Successfully saved output to D:\apps\kazi\output\consultancy-tailored\gate_jul_25_20250712_083638\gate_jul_25_customized_proposal_structure_20250712_083638_2.5-flash-preview-05-20.json
+INFO: Stage 3: Customized Proposal Structure saved to output/gate_jul_25_customized_proposal_structure_20250712_083638_2.5-flash-preview-05-20.json       
+INFO:
+Stage 4: Generating Dynamic Content for Each Section...
+INFO: 
+Generating content for Section 1: Understanding GATE's Vision: Empowering Trans and Gender Diverse Organizations...
+INFO: Initiating Dynamic Content Generation for Section 1...
+INFO: Successfully loaded prompt: D:\apps\kazi\prompts\templates\consultancy-tailored\dynamic_content_generator_prompt.txt
+INFO: Successfully received response from LLM model gemini-2.5-flash-preview-05-20.
+INFO: Successfully received content for section Understanding GATE's Vision: Empowering Trans and Gender Diverse Organizations from LLM.
+INFO: Successfully saved output to D:\apps\kazi\output\consultancy-tailored\gate_jul_25_20250712_083638\gate_jul_25_section_1_understanding_gate's_vision__empowering_trans_and_gender_diverse_organizations_20250712_083638_2.5-flash-preview-05-20.md
+INFO: Section 1 content saved to output/gate_jul_25_section_1_understanding_gate's_vision__empowering_trans_and_gender_diverse_organizations_20250712_083638_2.5-flash-preview-05-20.md
+INFO:
+Generating content for Section 2: Our Strategic Approach: Practical Blueprints for Sustainable Impact...
+INFO: Initiating Dynamic Content Generation for Section 2...
+INFO: Successfully loaded prompt: D:\apps\kazi\prompts\templates\consultancy-tailored\dynamic_content_generator_prompt.txt
+INFO: Successfully received response from LLM model gemini-2.5-flash-preview-05-20.
+INFO: Successfully received content for section Our Strategic Approach: Practical Blueprints for Sustainable Impact from LLM.
+INFO: Successfully saved output to D:\apps\kazi\output\consultancy-tailored\gate_jul_25_20250712_083638\gate_jul_25_section_2_our_strategic_approach__practical_blueprints_for_sustainable_impact_20250712_083638_2.5-flash-preview-05-20.md
+INFO: Section 2 content saved to output/gate_jul_25_section_2_our_strategic_approach__practical_blueprints_for_sustainable_impact_20250712_083638_2.5-flash-preview-05-20.md
+INFO:
+Generating content for Section 3: Our Expertise & Shared Values: Partnering for Trans Financial Resilience...
+INFO: Initiating Dynamic Content Generation for Section 3...
+INFO: Successfully loaded prompt: D:\apps\kazi\prompts\templates\consultancy-tailored\dynamic_content_generator_prompt.txt
+INFO: Successfully received response from LLM model gemini-2.5-flash-preview-05-20.
+INFO: Successfully received content for section Our Expertise & Shared Values: Partnering for Trans Financial Resilience from LLM.
+INFO: Successfully saved output to D:\apps\kazi\output\consultancy-tailored\gate_jul_25_20250712_083638\gate_jul_25_section_3_our_expertise_&_shared_values__partnering_for_trans_financial_resilience_20250712_083638_2.5-flash-preview-05-20.md
+INFO: Section 3 content saved to output/gate_jul_25_section_3_our_expertise_&_shared_values__partnering_for_trans_financial_resilience_20250712_083638_2.5-flash-preview-05-20.md
+INFO:
+Generating content for Section 4: Comprehensive Work Plan & High-Impact Deliverables...
+INFO: Initiating Dynamic Content Generation for Section 4...
+INFO: Successfully loaded prompt: D:\apps\kazi\prompts\templates\consultancy-tailored\dynamic_content_generator_prompt.txt
+INFO: Successfully received response from LLM model gemini-2.5-flash-preview-05-20.
+INFO: Successfully received content for section Comprehensive Work Plan & High-Impact Deliverables from LLM.
+INFO: Successfully saved output to D:\apps\kazi\output\consultancy-tailored\gate_jul_25_20250712_083638\gate_jul_25_section_4_comprehensive_work_plan_&_high-impact_deliverables_20250712_083638_2.5-flash-preview-05-20.md
+INFO: Section 4 content saved to output/gate_jul_25_section_4_comprehensive_work_plan_&_high-impact_deliverables_20250712_083638_2.5-flash-preview-05-20.md
+INFO:
+Generating content for Section 5: Investment for Lasting Change: Budget and Value Proposition...
+INFO: Initiating Dynamic Content Generation for Section 5...
+INFO: Successfully loaded prompt: D:\apps\kazi\prompts\templates\consultancy-tailored\dynamic_content_generator_prompt.txt
+INFO: Successfully received response from LLM model gemini-2.5-flash-preview-05-20.
+INFO: Successfully received content for section Investment for Lasting Change: Budget and Value Proposition from LLM.
+INFO: Successfully saved output to D:\apps\kazi\output\consultancy-tailored\gate_jul_25_20250712_083638\gate_jul_25_section_5_investment_for_lasting_change__budget_and_value_proposition_20250712_083638_2.5-flash-preview-05-20.md
+INFO: Section 5 content saved to output/gate_jul_25_section_5_investment_for_lasting_change__budget_and_value_proposition_20250712_083638_2.5-flash-preview-05-20.md
+INFO:
+Generating content for Section 6: Our Commitment to GATE and the Movement...
+INFO: Initiating Dynamic Content Generation for Section 6...
+INFO: Successfully loaded prompt: D:\apps\kazi\prompts\templates\consultancy-tailored\dynamic_content_generator_prompt.txt
+INFO: Successfully received response from LLM model gemini-2.5-flash-preview-05-20.
+INFO: Successfully received content for section Our Commitment to GATE and the Movement from LLM.
+INFO: Successfully saved output to D:\apps\kazi\output\consultancy-tailored\gate_jul_25_20250712_083638\gate_jul_25_section_6_our_commitment_to_gate_and_the_movement_20250712_083638_2.5-flash-preview-05-20.md
+INFO: Section 6 content saved to output/gate_jul_25_section_6_our_commitment_to_gate_and_the_movement_20250712_083638_2.5-flash-preview-05-20.md
+INFO:
+Stage 5: Assembling Customized Proposal...
+INFO: Initiating Customized Proposal Assembly...
+INFO: Customized Proposal Assembly completed.
+INFO: Successfully saved output to D:\apps\kazi\output\consultancy-tailored\gate_jul_25_20250712_083638\gate_jul_25_customized_proposal_20250712_083638_2.5-flash-preview-05-20.md
+INFO: Stage 5: Customized Proposal saved to output/gate_jul_25_customized_proposal_20250712_083638_2.5-flash-preview-05-20.md
+INFO:
+--- Tailored ToR Analysis and Customized Proposal Pipeline Completed Successfully ---
+
+SUCCESS: CONSULTANCY-TAILORED pipeline complete for model gemini-2.5-flash-preview-05-20. Check the 'output' directory.
+INFO:
+--- All CONSULTANCY-TAILORED Pipelines Completed Successfully ---
+INFO: --- Kazi CLI Finished ---
+(.venv) PS D:\apps\kazi> 

@@ -50,13 +50,21 @@ Generate only the content for the specified section in Markdown format. Do NOT i
 - Focus on the key messages specified for this section
 - Maintain consistency with the overall proposal narrative
 
+**Guidance on Team and Firm Data Integration:**
+- When generating content, especially for sections related to 'Our Expertise', 'Team Composition', 'Qualifications', or 'Project Management', actively draw upon the provided `selected_consultants_data` and `selected_firm_data`.
+- Highlight specific experiences, qualifications, and the firm's approach that are most relevant to the current `section_title` and `section_focus`.
+- Emphasize how the collective expertise of the selected consultants and the firm's capabilities directly address the client's needs and the core problem identified in the ToR.
+- Do not just list CV details; instead, weave them into a compelling narrative that demonstrates the team's suitability and unique value proposition.
+- If a firm is selected, ensure its overall approach and relevant statistics are integrated where appropriate.
+- For individual consultants, focus on their summary profiles, key assignments, and relevant skills/methodologies.
+
 **Tailored ToR Analysis:**
 {{tor_analysis_json}}
 
 **Proposal Structure:**
 {{proposal_structure_json}}
 
-**Master CV Data (if relevant):**
-{{master_cv_data}}
+**Team Context Summary:**
+{{team_context_summary}}
 
 **Generate content for section: {{section_title}}** 
