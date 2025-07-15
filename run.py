@@ -22,11 +22,14 @@ def main():
     )
     parser.add_argument(
         "--consultant-email",
-        type=str,
         default="james@gathogo.co.ke",
         help="The email of the consultant whose profile should be used for generation. Defaults to 'james@gathogo.co.ke'."
     )
     args = parser.parse_args()
+
+    # Inform the user if the default email is being used for a job application.
+    if args.type == "job" and args.consultant_email == "james@gathogo.co.ke":
+        settings.log_info(f"Using default consultant email for job application: {args.consultant_email}")
 
     settings.log_info(f"--- Kazi CLI Started for {args.type.upper()} Application ---")
 
@@ -48,6 +51,9 @@ def main():
         settings.log_error(f"The specified file '{os.path.basename(args.input_filename)}' was not found in '{storage_dir}'.")
         settings.log_info("--- Kazi CLI Finished (with errors) ---")
         return
+
+    # Generate a timestamp for the output directory
+    timestamp = time.strftime("%Y%m%d_%H%M%S")
     
     all_success = True
     for model_name in settings.LLM_MODELS_TO_RUN:
@@ -56,13 +62,13 @@ def main():
         
         success = False
         if args.type == "job":
-            success = run_full_application_package_pipeline(args.input_filename, args.consultant_email)
+            success = run_full_application_package_pipeline(args.input_filename, args.consultant_email, timestamp)
         elif args.type == "consultancy":
-            result = run_tor_analysis_pipeline(args.input_filename, args.consultant_email)
+            result = run_tor_analysis_pipeline(args.input_filename, args.consultant_email, timestamp)
             success = result is not None # Success if analysis data is returned
         elif args.type == "consultancy-tailored":
-            result = run_tor_analysis_tailored_pipeline(args.input_filename)
-            success = result is not None
+            result = run_tor_analysis_tailored_pipeline(args.input_filename, timestamp)  # Pass timestamp
+            success = result is not None  # Success if result is not None
 
         if success:
             print(f"\nSUCCESS: {args.type.upper()} pipeline complete for model {model_name}. Check the 'output' directory.")

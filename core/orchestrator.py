@@ -845,7 +845,7 @@ def run_jd_analysis_pipeline(jd_pdf_filename: str) -> str | None:
     return saved_filepath
 
 
-def run_tor_analysis_pipeline(tor_pdf_filename: str, consultant_email: str) -> str | None:
+def run_tor_analysis_pipeline(tor_pdf_filename: str, consultant_email: str, timestamp: str) -> str | None:
     """
     Runs the pipeline for analyzing a Terms of Reference (ToR) document and generating
     initial technical proposal sections.
@@ -1159,7 +1159,7 @@ Enter numbers of consultants to include (e.g., '1,3,5'), or 'all' for all: """).
 
     return {"selected_consultants": full_selected_consultants_data, "selected_firm": selected_firm_data}
 
-def run_tor_analysis_tailored_pipeline(tor_pdf_filename: str) -> str | None:
+def run_tor_analysis_tailored_pipeline(tor_pdf_filename: str, timestamp: str) -> str | None:
 
     """
     Runs a tailored pipeline for analyzing ToR documents and generating customized proposals
@@ -1286,4 +1286,3 @@ def run_tor_analysis_tailored_pipeline(tor_pdf_filename: str) -> str | None:
 
     settings.log_info("\n--- Tailored ToR Analysis and Customized Proposal Pipeline Completed Successfully ---")
     return full_proposal_md
-
