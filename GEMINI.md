@@ -110,3 +110,59 @@ Output will be saved in a timestamped folder under `output/consultancy-tailored/
 ## 6. Agent Operational Guidelines
 
 *   **File Visibility:** This agent is aware that `tor_storage/` and other data directories contain files that are intentionally ignored by `.gitignore`. When listing or searching these directories, the agent will use `respect_git_ignore=False` in its tool calls to ensure all files are visible for operational purposes, unless explicitly instructed otherwise.
+
+## 7. Usage Instructions & Recent Code Changes (July 2024)
+
+### 7.1. Markdown to PDF Utility
+
+A new utility script is available for converting any Markdown file (e.g., CV, cover letter) to PDF using WeasyPrint:
+
+**Location:** `utils/convert_md_to_pdf.py`
+
+**Usage from the Command Line:**
+```bash
+python -m utils.convert_md_to_pdf path/to/your_cv.md --css path/to/resume_markdown_pdf_style.css
+```
+- The `--css` argument is optional. If omitted, the script will look for `resume_markdown_pdf_style.css` in the same directory as the script.
+
+**Usage from Python:**
+```python
+from utils.convert_md_to_pdf import convert_md_to_pdf
+convert_md_to_pdf("output/job/your_cv.md", "path/to/resume_markdown_pdf_style.css")
+```
+
+### 7.2. Job Pipeline
+
+Generates tailored CVs and cover letters for a given Job Description (JD), and now also exports the full consultant profile as both JSON and Markdown for every run.
+
+**Command:**
+```bash
+python run.py path/to/jd_file.pdf --type job --consultant-email "user@email.com"
+```
+- Output is saved in a timestamped folder under `output/job/`.
+- The folder will contain:
+  - LLM-generated tailored CV and cover letter
+  - The full consultant profile as JSON (`*_full_cv_*.json`)
+  - The full consultant profile as Markdown (`*_full_cv_*.md`)
+
+### 7.3. Consultancy-Tailored Pipeline
+
+Performs dynamic ToR analysis, generates a custom proposal structure, and creates tailored content for each section. Supports interactive team selection from the database.
+
+**Command:**
+```bash
+python run.py path/to/tor_file.pdf --type consultancy-tailored
+```
+- Output is saved in a timestamped folder under `output/consultancy-tailored/`.
+- The pipeline injects both full JSON data and a concise summary of the selected team into the LLM prompt for evidence-based proposal generation.
+
+### 7.4. Key Code Changes (July 2024)
+- **Markdown-to-PDF script** moved to `utils/convert_md_to_pdf.py`, now importable and CLI-friendly.
+- **Full CV export:** The job pipeline now saves the full consultant profile as both JSON and Markdown, using a comprehensive Markdown builder that includes all assignments, skills, education, certifications, publications, and languages.
+- **Static content builder:** Functions for building the full CV Markdown were consolidated in `utils/static_content_builder.py` for reuse and maintainability.
+- **Education and certifications:** Markdown output now includes clickable links for thesis/dissertation and certifications where available.
+- **No integration of PDF export in pipeline:** The Markdown-to-PDF utility is intentionally kept separate for manual or batch use after personalizing CVs/cover letters.
+
+---
+
+For further details, see the relevant Python modules and the code comments. This section will be updated as new features and utilities are added.
