@@ -111,6 +111,29 @@ def run_full_application_package_pipeline(jd_pdf_filename: str, consultant_email
     save_text_to_output_dir(jd_cv_mapping_output_filename, jd_cv_mapping_json_str, base_file=run_folder_name, app_type="job")
     settings.log_info(f"Stage 1.5: JD-CV Mapping saved to output/job/{run_folder_name}/{jd_cv_mapping_output_filename}")
 
+    # --- NEW: Save full consultant profile as JSON and Markdown ---
+    import json as _json
+    from utils.static_content_builder import (
+        build_personal_md,
+        build_education_md,
+        build_certifications_md,
+        build_publications_md,
+        build_languages_md,
+        generate_master_cv_markdown
+    )
+
+    # Save as JSON
+    full_cv_json_filename = f"{base_jd_filename}_full_cv_{timestamp}.json"
+    save_text_to_output_dir(full_cv_json_filename, _json.dumps(master_cv_data, indent=2), base_file=run_folder_name, app_type="job")
+
+    # Save as Markdown using the comprehensive builder
+    full_cv_md = generate_master_cv_markdown(master_cv_data)
+    if full_cv_md is None:
+        full_cv_md = "# CV could not be generated."
+    full_cv_md_filename = f"{base_jd_filename}_full_cv_{timestamp}.md"
+    save_text_to_output_dir(full_cv_md_filename, full_cv_md, base_file=run_folder_name, app_type="job")
+    # --- END NEW ---
+
 
     # --- Stage 2: Tailored Experience JSON (Prompt 2) ---
     # This stage will still run for CV generation, but Cover Letter will primarily use JD-CV Mapping now.

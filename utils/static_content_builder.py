@@ -6,6 +6,10 @@ import os
 from dateutil import parser as date_parser
 import json # Not strictly needed here if functions take parsed data, but good for context
 from config import settings # For logging if needed
+from data_management.db_handler import get_full_consultant_profile_as_dict
+from datetime import datetime
+import re
+
 
 def format_date_for_cv(date_str, desired_format="%Y"):
     if not date_str:
@@ -66,55 +70,41 @@ def build_education_md(education_list: list | None) -> str:
     md_parts = ["## Education", ""]
 
     def get_education_sort_key(edu_item):
-        # Prioritize end_year, then start_year for sorting
         sort_date_str = edu_item.get("end_year") or edu_item.get("start_year")
         if sort_date_str:
             try:
-                # Handle float years like 2014.0
                 if isinstance(sort_date_str, float): sort_date_str = str(int(sort_date_str))
                 return date_parser.parse(str(sort_date_str))
             except (ValueError, TypeError):
-                # Fallback for unparseable dates, sort them to the beginning or end
                 return date_parser.parse("1900-01-01T00:00:00Z") 
-        return date_parser.parse("1900-01-01T00:00:00Z") # Default for items with no date
+        return date_parser.parse("1900-01-01T00:00:00Z")
 
-    # Sort education entries, most recent first
     sorted_education = sorted(education_list, key=get_education_sort_key, reverse=True)
 
     for edu in sorted_education:
         degree = edu.get("degree", "N/A")
         institution = edu.get("institution", "N/A")
-        location = edu.get("location", "") # Location from JSON
-        
+        location = edu.get("location", "")
         start_year_str = format_date_for_cv(edu.get("start_year"), desired_format="%Y")
         end_year_str = format_date_for_cv(edu.get("end_year"), desired_format="%Y")
-
         date_range = ""
         if edu.get("graduation_status", "").lower() == "graduated" and end_year_str:
             date_range = f"(Graduated {end_year_str})"
         elif start_year_str and end_year_str and start_year_str != end_year_str:
             date_range = f"({start_year_str}–{end_year_str})"
-        elif end_year_str: # Only end year provided
+        elif end_year_str:
             date_range = f"({end_year_str})"
-        elif start_year_str: # Only start year, assume ongoing or completion year not specified
-            date_range = f"({start_year_str}–Present)" # Or just f"({start_year_str})"
-
+        elif start_year_str:
+            date_range = f"({start_year_str}–Present)"
         institution_display = institution
         if location and location.lower() not in institution.lower():
             institution_display += f", {location}"
-        
         md_parts.append(f"- **{degree}** | {institution_display} {date_range}")
-
-        dissertation_title = edu.get("disseration_title") # Field name from your example
+        dissertation_title = edu.get("dissertation_title") or edu.get("disseration_title")
+        dissertation_link = edu.get("dissertation_link")
         if dissertation_title:
-            diss_link_raw = edu.get("dissertation_link")
-            diss_link_cleaned = None
-            if diss_link_raw and isinstance(diss_link_raw, str):
-                # Clean common wrapping characters like '#' if present
-                diss_link_cleaned = diss_link_raw.strip().strip('#')
-            
-            if diss_link_cleaned:
-                md_parts.append(f"    - *Thesis:* [{dissertation_title}]({diss_link_cleaned})")
+            if dissertation_link and isinstance(dissertation_link, str) and dissertation_link.strip():
+                md_parts.append(f"    - *Thesis:* [{dissertation_title}]({dissertation_link.strip()})")
             else:
                 md_parts.append(f"    - *Thesis:* {dissertation_title}")
     return "\n".join(md_parts)
@@ -124,28 +114,22 @@ def build_certifications_md(cert_list: list | None, max_certs=5) -> str:
     if not cert_list:
         return "## Certifications (Selected)\n*No certifications listed.*"
     md_parts = ["## Certifications (Selected)", ""]
-
     def get_cert_sort_key(cert_item):
-        issue_date = cert_item.get("issue_date") # Expects ISO date string e.g. "2020-05-01T00:00:00Z"
+        issue_date = cert_item.get("issue_date")
         if issue_date:
             try: return date_parser.isoparse(issue_date)
             except (ValueError, TypeError): return date_parser.parse("1900-01-01T00:00:00Z")
         return date_parser.parse("1900-01-01T00:00:00Z")
-
     sorted_certs = sorted(cert_list, key=get_cert_sort_key, reverse=True)
-    
     for cert in sorted_certs[:max_certs]:
         name = cert.get("certification_name", "N/A")
         issuer = cert.get("issuer", "N/A")
-        date_formatted = format_date_for_cv(cert.get("issue_date"), desired_format="%Y") # Just year
-        link = cert.get("certification_linke") # Field name from your example 'certification_linke'
-        
+        date_formatted = format_date_for_cv(cert.get("issue_date"), desired_format="%Y")
+        link = cert.get("certification_link")
         cert_text = name
         if link and isinstance(link, str) and link.strip():
             cert_text = f"[{name}]({link.strip()})"
-        
         md_parts.append(f"* {cert_text} | {issuer} ({date_formatted})")
-            
     return "\n".join(md_parts)
 
 
@@ -210,6 +194,128 @@ def build_languages_md(languages_data: list | None) -> str:
         return "## Languages\n* English (Fluent)\n* Kiswahili (First langauge)"
 
 
+def build_master_experience_md(assignments_list: list | None) -> str:
+    """
+    Builds the 'Experience' section for the master CV from all assignments.
+    Excludes 'id' fields and formats as H3 title, italicized org/loc/date, and bulleted tasks.
+    Ensures correct bullet point formatting by stripping existing list markers.
+    """
+    if not assignments_list:
+        return "## Experience\n*No experience data provided.*"
+
+    md_parts = ["## Experience", ""]
+
+    # Sort assignments by start_date (most recent first)
+    def get_assignment_sort_key(assignment_item):
+        start_date_str = assignment_item.get("start_date")
+        if start_date_str:
+            try:
+                return datetime.strptime(start_date_str, "%Y-%m-%dT%H:%M:%S")
+            except ValueError:
+                return datetime.min
+        return datetime.min # Default for items with no start date
+
+    sorted_assignments = sorted(assignments_list, key=get_assignment_sort_key, reverse=True)
+
+    for assignment in sorted_assignments:
+        title = assignment.get("title", "N/A")
+        organization = assignment.get("organization", "N/A")
+        location = assignment.get("location", "")
+        date_range = assignment.get("date_range", "")
+
+        md_parts.append(f"### {title}")
+        org_loc_date_line = f"_{organization}"
+        if location:
+            org_loc_date_line += f" | {location}"
+        if date_range:
+            org_loc_date_line += f" | {date_range}"
+        org_loc_date_line += "_"
+        md_parts.append(org_loc_date_line)
+
+        tasks_content = assignment.get("tasks")
+        if tasks_content:
+            raw_tasks = [t.strip() for t in tasks_content.split('\n') if t.strip()]
+            task_bullets = []
+            for task in raw_tasks:
+                cleaned_task = re.sub(r"^\s*[-*+]\s*|^(\d+\.)\s*", "", task).strip()
+                if cleaned_task:
+                    task_bullets.append(f"* {cleaned_task}")
+            md_parts.extend(task_bullets)
+        elif assignment.get("description"):
+            md_parts.append(f"* {assignment['description'].strip()}")
+        md_parts.append("")
+
+    return "\n".join(md_parts)
+
+def build_master_skills_md(cv_data: dict) -> str:
+    """
+    Builds a comprehensive 'Key Skills & Tools' section by extracting unique skills
+    from assignments' sectors and methodologies, and other relevant fields.
+    This is a more exhaustive list for a master CV.
+    """
+    all_skills = set()
+
+    for assignment in cv_data.get("assignments", []):
+        for sector in assignment.get("sectors", []):
+            all_skills.add(sector.strip())
+        for method in assignment.get("methodologies", []):
+            all_skills.add(method.strip())
+
+    for cert in cv_data.get("certifications", []):
+        cert_name = cert.get("certification_name", "").lower()
+        if "power bi" in cert_name:
+            all_skills.add("Power BI")
+        if "microsoft certified" in cert_name or "data analyst" in cert_name:
+            all_skills.add("Data Analysis")
+            all_skills.add("Microsoft Technologies")
+
+    for edu in cv_data.get("education", []):
+        field_of_study = edu.get("field_of_study", "").lower()
+        if "information systems" in field_of_study:
+            all_skills.add("Information Systems")
+        if "economics" in field_of_study:
+            all_skills.add("Economic Analysis")
+
+    explicit_tools = [
+        "SPSS", "Stata", "ATLAS.ti", "R", "EPI Info", "KoboToolbox", "Power BI",
+        "Excel", "Google Sheets", "Google Docs", "Word", "NVivo" 
+    ]
+    for tool in explicit_tools:
+        all_skills.add(tool)
+
+    sorted_skills = sorted(list(all_skills))
+
+    if not sorted_skills:
+        return "## Key Skills & Tools\n*No key skills or tools listed.*"
+
+    md_parts = ["## Key Skills & Tools", ""]
+    for skill in sorted_skills:
+        md_parts.append(f"* {skill}")
+    return "\n".join(md_parts)
+
+def generate_master_cv_markdown(cv_data: dict) -> str | None:
+    """
+    Generates a comprehensive master CV in Markdown format from the master CV JSON data.
+    """
+    personal_md = build_personal_md(cv_data)
+    education_md = build_education_md(cv_data.get("education"))
+    certifications_md = build_certifications_md(cv_data.get("certifications"))
+    publications_md = build_publications_md(cv_data.get("publications"))
+    languages_md = build_languages_md(cv_data.get("languages"))
+    experience_md = build_master_experience_md(cv_data.get("assignments"))
+    skills_md = build_master_skills_md(cv_data)
+    master_cv_markdown = (
+        f"{personal_md}\n\n"
+        f"{experience_md}\n\n"
+        f"{skills_md}\n\n"
+        f"{education_md}\n\n"
+        f"{certifications_md}\n\n"
+        f"{publications_md}\n\n"
+        f"{languages_md}"
+    )
+    return master_cv_markdown
+
+
 # --- Test Script Section (Optional - for direct testing of this file) ---
 if __name__ == "__main__":
     # This part will only run if you execute static_content_builder.py directly
@@ -229,17 +335,13 @@ if __name__ == "__main__":
 
     settings = TestSettings() # Override the imported settings for local test
 
-    master_cv_path_test = os.path.join(settings.CV_DATA_DIR, settings.MASTER_CV_FILENAME)
-    
-    cv_data_test = None
-    try:
-        with open(master_cv_path_test, 'r', encoding='utf-8') as f:
-            cv_data_test = json.load(f)
-        settings.log_info(f"Successfully read test CV data from '{master_cv_path_test}'\n")
-    except FileNotFoundError:
-        settings.log_error(f"Error: Test CV data file not found at '{master_cv_path_test}'.")
-    except json.JSONDecodeError:
-        settings.log_error(f"Error: Could not decode JSON from '{master_cv_path_test}'.")
+    # Fetch consultant profile from the database instead of JSON
+    consultant_email = "james@gathogo.co.ke"  # Change this to test other users
+    cv_data_test = get_full_consultant_profile_as_dict(consultant_email)
+    if cv_data_test:
+        settings.log_info(f"Successfully fetched consultant profile for '{consultant_email}' from the database.\n")
+    else:
+        settings.log_error(f"Error: Could not fetch consultant profile for '{consultant_email}' from the database.")
 
     if cv_data_test:
         personal_md = build_personal_md(cv_data_test)
@@ -247,9 +349,13 @@ if __name__ == "__main__":
         certifications_md = build_certifications_md(cv_data_test.get("certifications"))
         publications_md = build_publications_md(cv_data_test.get("publications"))
         languages_md = build_languages_md(cv_data_test.get("languages"))
+        experience_md = build_master_experience_md(cv_data_test.get("assignments"))
+        skills_md = build_master_skills_md(cv_data_test)
 
         full_static_cv_md = (
             f"{personal_md}\n\n"
+            f"{experience_md}\n\n"
+            f"{skills_md}\n\n"
             f"{education_md}\n\n"
             f"{certifications_md}\n\n"
             f"{publications_md}\n\n"
