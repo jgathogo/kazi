@@ -60,8 +60,7 @@ def build_personal_md(cv_data: dict) -> str:
         # contact_parts.append(f"LinkedIn: [{linkedin_display}]({linkedin_url})")
 
     contact_line = " | ".join(contact_parts)
-    # Using H1 for name as per your cv_static_builder.py example output
-    return f"# {name}\n{contact_line}\n"
+    return f"# {name}\n\n{contact_line}\n"
 
 
 def build_education_md(education_list: list | None) -> str:
@@ -138,7 +137,7 @@ def build_publications_md(pub_list: list | None, max_pubs=5) -> str:
         return "## Publications (Selected)\n*No publications listed.*"
     md_parts = ["## Publications (Selected)", ""]
     md_parts.append("_Click on each title to access the document – most are hosted on client websites_")
-    # md_parts.append("") # Adding extra line for spacing
+    md_parts.append("") # Adding extra line for spacing
 
     def get_pub_sort_key(pub_item):
         year_val = pub_item.get("year") # e.g., 2025 or "2025" or 2025.0

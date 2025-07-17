@@ -24,6 +24,21 @@ body {
   padding: 0 10px;
 }
 
+/* --- Center and style contact info after name --- */
+h1 + p {
+  text-align: center;
+  font-size: 9.5pt;
+  color: #555;
+  margin-bottom: 1.5em;
+}
+
+/* .contact-info {
+  text-align: center;
+  font-size: 9.5pt;
+  color: #555;
+  margin-bottom: 1.5em;
+} */
+
 h1, h2, h3, h4 {
   font-weight: bold;
   margin-top: 1.2em;
@@ -47,6 +62,7 @@ h1 {
 p {
   margin: 0.8em 0;
 }
+
 
 /* First paragraph after contact block */
 p:first-of-type {

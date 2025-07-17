@@ -6,6 +6,7 @@ from core.llm_interface import generate_text_from_prompt
 from config import settings
 import datetime
 import json
+from utils.static_content_builder import build_personal_md
 
 def extract_info_from_jd_analysis(jd_analysis_markdown: str) -> dict:
     """
@@ -149,7 +150,9 @@ def generate_cover_letter_markdown(
                 stripped_cover_letter_markdown = stripped_cover_letter_markdown[:-len("```")].strip()
             settings.log_info("Stripped ``` fences from LLM Cover Letter output.")
         
-        return stripped_cover_letter_markdown # Return the stripped version
+        # Prepend the personal header using build_personal_md
+        personal_md = build_personal_md(master_cv_data)
+        return f"{personal_md}\n\n{stripped_cover_letter_markdown}" # Return the stripped version
         
     else:
         settings.log_error("Failed to get Cover Letter Markdown from LLM for Prompt 5.")
