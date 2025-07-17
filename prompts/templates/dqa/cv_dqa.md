@@ -3,7 +3,7 @@ Your task is to construct a complete, professional, and highly tailored CV in Br
 
 **Instructions:**
 - Use the most recent and relevant experiences (last 7 years, up to 8 main roles).
-- For each role, include 2–3 high-impact, non-redundant, quantifiable achievements, indented as code blocks for clarity.
+- For each role, include 2–4 high-impact, non-redundant, quantifiable achievements, indented as code blocks for clarity.
 - Group all other projects under a single 'Selected Additional Projects' section as one-liners.
 - Keep the Professional Summary to 3–4 lines, focusing on unique value and fit for the target job.
 - Group and condense Key Skills & Tools.
