@@ -1,0 +1,85 @@
+@page {
+    size: A4;
+    margin: 1.5cm;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Segoe WPC", "Ubuntu", "Droid Sans", "Georgia", sans-serif;
+  
+    @top-center {
+      content: "Generated on " date();
+      font-size: 8pt;
+      color: #999;
+    }
+  
+    @bottom-center {
+      content: "Page " counter(page) " of " counter(pages);
+      font-size: 8pt;
+      color: #999;
+    }
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Segoe WPC", "Ubuntu", "Droid Sans", "Georgia", sans-serif;
+    font-size: 11.5pt;
+    color: #111;
+    line-height: 1.7;
+    padding: 5px 5px;
+
+/* --- Center and style contact info after name --- */
+h1 + p {
+    text-align: center;
+    font-size: 11pt;
+    color: #555;
+    margin-bottom: 0.5em;
+  }
+
+h1{
+    text-align: center;
+    /* margin-top: 0.5em; */
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+p {
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.header .name {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0.2em;
+    display: block;
+}
+
+.header .contact {
+    font-size: 1em;
+    color: #3366cc;
+    margin-bottom: 0.5em;
+    display: block;
+}
+
+.date {
+    margin-bottom: 1.2em;
+    font-size: 1.1em;
+    display: block;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #bbb;
+    margin: 1.5em 0;
+}
+
+.letter-body {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.signature {
+    margin-top: 2em;
+    font-weight: bold;
+} 

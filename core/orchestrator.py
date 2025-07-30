@@ -227,7 +227,7 @@ def run_jd_analysis_pipeline(jd_pdf_filename: str) -> str | None:
     return saved_filepath
 
 
-def run_tor_analysis_pipeline(tor_pdf_filename: str, consultant_email: str) -> str | None:
+def run_tor_analysis_pipeline(tor_pdf_filename: str, consultant_email: str, timestamp: str) -> str | None:
     """
     Runs the pipeline for analyzing a Terms of Reference (ToR) document and generating
     initial technical proposal sections.
@@ -235,7 +235,6 @@ def run_tor_analysis_pipeline(tor_pdf_filename: str, consultant_email: str) -> s
     settings.log_info(f"--- Starting ToR Analysis and Initial Technical Proposal Sections Pipeline for: {tor_pdf_filename} ---")
     
     base_tor_filename = os.path.splitext(os.path.basename(tor_pdf_filename))[0]
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     run_folder_name = f"{base_tor_filename}_{timestamp}"
     llm_model_suffix = settings.LLM_MODEL_NAME.replace("gemini-", "")
 
