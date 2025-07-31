@@ -1,6 +1,6 @@
 # Kazi - AI-Powered CV & Proposal Generator
 
-Kazi is a sophisticated Python-based system designed to automate the generation of tailored job application materials using AI. It analyzes Job Descriptions (JDs) or Terms of Reference (ToRs) and uses Large Language Models (specifically Google Gemini API) to produce customized CVs, cover letters, and technical proposals.
+Kazi is a Python-based system designed to automate the generation of tailored job application materials using AI. It analyzes Job Descriptions (JDs) or Terms of Reference (ToRs) and uses Large Language Models (specifically Google Gemini API) to produce customized CVs, cover letters, and technical proposals.
 
 ## 🚀 Features
 
