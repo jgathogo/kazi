@@ -1,0 +1,69 @@
+{
+  "name": "[YOUR_NAME]",
+  "email": "[YOUR_EMAIL]",
+  "phone": "[YOUR_PHONE]",
+  "linkedin": "[YOUR_LINKEDIN_URL]",
+  "education": [
+    {
+      "education_id": 1,
+      "user_id": 1,
+      "degree": "[DEGREE]",
+      "institution": "[INSTITUTION]",
+      "location": "[LOCATION]",
+      "start_year": "[START_DATE]",
+      "end_year": "[END_DATE]",
+      "field_of_study": "[FIELD_OF_STUDY]",
+      "graduation_status": "[GRADUATION_STATUS]",
+      "dissertation_link": "[DISSERTATION_LINK]",
+      "disseration_title": "[DISSERTATION_TITLE]"
+    }
+  ],
+  "certifications": [
+    {
+      "certification_id": 1,
+      "user_id": 1,
+      "certification_name": "[CERTIFICATION_NAME]",
+      "issuer": "[ISSUER]",
+      "issue_date": "[ISSUE_DATE]",
+      "expiry_date": "[EXPIRY_DATE]",
+      "description": "[DESCRIPTION]",
+      "certification_linke": "[CERTIFICATION_LINK]"
+    }
+  ],
+  "assignments": [
+    {
+      "title": "[JOB_TITLE]",
+      "organization": "[ORGANIZATION]",
+      "location": "[LOCATION]",
+      "date_range": "[DATE_RANGE]",
+      "start_date": "[START_DATE]",
+      "description": "[DESCRIPTION]",
+      "project_summary": "[PROJECT_SUMMARY]",
+      "role_summary": "[ROLE_SUMMARY]",
+      "tasks": "[TASKS]",
+      "sectors": ["[SECTOR_1]", "[SECTOR_2]"],
+      "methodologies": ["[METHODOLOGY_1]", "[METHODOLOGY_2]"],
+      "key_achievements_quantified": ["[ACHIEVEMENT_1]", "[ACHIEVEMENT_2]"],
+      "skills_demonstrated": ["[SKILL_1]", "[SKILL_2]"]
+    }
+  ],
+  "publications": [
+    {
+      "publication_id": 1,
+      "user_id": 1,
+      "title": "[PUBLICATION_TITLE]",
+      "authors": "[AUTHORS]",
+      "year": "[YEAR]",
+      "publisher": "[PUBLISHER]",
+      "link": "[LINK]"
+    }
+  ],
+  "languages": [
+    {
+      "language_id": 1,
+      "user_id": 1,
+      "language": "[LANGUAGE]",
+      "level": "[LEVEL]"
+    }
+  ]
+} 

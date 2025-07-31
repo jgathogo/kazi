@@ -21,16 +21,24 @@ Consider the following factors for scoring and ranking (higher score is better):
 
 Select the **top 5-7 assignments** based on this scoring. If an assignment has a very high score due to multiple alignments, it should be prioritized. If fewer than 5 assignments show strong relevance, you may include up to 2 additional recent roles to reach a minimum of 5, but clearly indicate their lower direct relevance if applicable in your internal "thinking" process (not in the final JSON).
 
+**CRITICAL ORDERING REQUIREMENT: After selecting the assignments, you MUST order them chronologically by date (most recent first) in the final JSON output, regardless of their relevance scores. This is mandatory for CV formatting.**
+
 ### B. JSON Output Structure and Content Guidelines:
 For EACH selected assignment, generate a JSON object with the following fields, strictly adhering to the descriptions. Use the candidate's CV data as the source, but reframe and synthesize information to maximize JD relevance and impact.
 
+**CRITICAL: Do NOT change factual data such as dates, organization names, or locations. Only reframe descriptions, summaries, and achievements to align with the JD.**
+
+**FINAL STEP - MANDATORY: Before outputting the JSON, sort all selected assignments chronologically by date (most recent first). Use the date_range field to determine order.**
+
 ```json
 [
+  // MANDATORY: Order assignments chronologically by date (most recent first) in the final output
+  // Sort by date_range field: "Present" > "2025" > "2024" > "2023" > etc.
   {
-    "original_title": "", // Candidate's actual title for the role from cv_db.json
-    "organization": "",   // From cv_db.json
-    "location": "",       // From cv_db.json
-    "date_range": "",     // From cv_db.json (e.g., "May 2025 – Present")
+    "original_title": "", // Candidate's actual title for the role from cv_db.json - COPY EXACTLY, DO NOT MODIFY
+    "organization": "",   // From cv_db.json - COPY EXACTLY, DO NOT MODIFY
+    "location": "",       // From cv_db.json - COPY EXACTLY, DO NOT MODIFY
+    "date_range": "",     // From cv_db.json (e.g., "May 2025 – Present") - COPY EXACTLY, DO NOT MODIFY
     "role_summary_jd_aligned": "", // 1-2 sentences (≤ 30 words) summarizing the role, rephrased to highlight relevance to JD's "Key MEAL Responsibilities" & "Critical Success Factors" from Prompt 1.
     "key_achievements_quantified_contextualized": [ // 2-3 bullets, each ≤ 25 words.
       // Each achievement MUST:
@@ -50,3 +58,5 @@ For EACH selected assignment, generate a JSON object with the following fields, 
     "internal_relevance_justification": "" // (OPTIONAL, for AI's internal use/debugging, 1 concise sentence) Brief note on why this role is highly relevant or how it addresses a key JD point.
   }
 ]
+
+**REMINDER: The final JSON array MUST be ordered chronologically by date (most recent first) based on the date_range field.**

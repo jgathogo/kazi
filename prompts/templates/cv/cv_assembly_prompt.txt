@@ -30,10 +30,21 @@ Keep individual bullet points concise (generally ≤ 20 words).
 Aim for a total CV length of approximately 2 to 3 pages.
 Avoid the use of ampersands as much as possible unless its in words such as M&E
 Use British English
+**Use dash (-) bullets consistently throughout the CV, not asterisks (*).**
 For the "Experience" section, format each assignment as follows, using the data from `{{tailored_experience_json}}`:
 - For each entry, output the `original_title` as an H3 heading.
 - Directly below the H3 heading, on a new line, output the `organization`, `location`, and `date_range` all on one line, separated by " | ", and italicize the entire line.
-- Follow with the `key_achievements_quantified_contextualized` as an unordered list.
+- Follow with the `key_achievements_quantified_contextualized` as an unordered list using **dash (-) bullets with proper indentation**.
+- Format each achievement with 2-4 spaces of indentation before the dash: `  - [achievement text]`
+- Example formatting:
+  ```
+  ### Job Title
+  *Organization | Date Range*
+    - First achievement with proper indentation
+    - Second achievement with proper indentation
+    - Third achievement with proper indentation
+  ```
+- Ensure proper spacing and indentation for readability.
 
 ```markdown
 {{personal_md_section}}

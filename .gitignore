@@ -23,12 +23,51 @@ tor_storage/*
 cv_data/*
 !cv_data/.empty
 
+# CRITICAL: Personal and sensitive data files - NEVER commit these
+master_cv.json
+kazi_db.sql
+gate_jul_25.pdf
+intermediate_output.html
+output.txt
+
+# Raw data files with personal information
+raw_data_for_db/*
+!raw_data_for_db/.empty
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
 
 # Sensitive config files
 config/credentials.json
 config/token.json
+config/settings_local.py
+config/database.py
+
+# API keys and secrets
+.env.local
+.env.production
+secrets.json
+credentials.json
 
 # OS-generated files
 [Dd]esktop.ini
 Thumbs.db
 .DS_Store
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Log files
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
